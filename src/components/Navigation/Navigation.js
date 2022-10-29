@@ -80,28 +80,28 @@ export default function Navigation(props) {
                                         </NavbarDropdown.Close>
                                     </NavbarDropdown.Toggle>
                                     <NavbarDropdown.CSSTransitionMenu
-                                        className="example1-dropdown-menu" timeout={200}
+                                        className="dropdown-menu" timeout={200}
                                     >
-                                        <NavbarDropdown.Item className="example1-dropdown-menu-item" onClick={toCreateTripPage}>
+                                        <NavbarDropdown.Item className="dropdown-menu-item" onClick={toCreateTripPage}>
                                             <div>
                                                 <FontAwesomeIcon icon={faCalendarPlus} fixedWidth/>
                                             </div>
-                                            <div className="example1-dropdown-menu-item__spacer" />
-                                            <div className="example1-dropdown-menu-item__text">Criar Nova Viagem</div>
+                                            <div className="dropdown-menu-item__spacer" />
+                                            <div className="dropdown-menu-item__text">Criar Nova Viagem</div>
                                         </NavbarDropdown.Item>
-                                        <NavbarDropdown.Item className="example1-dropdown-menu-item" onClick={toViewTripsPage}>
+                                        <NavbarDropdown.Item className="dropdown-menu-item" onClick={toViewTripsPage}>
                                             <div>
                                                 <FontAwesomeIcon icon={faBookmark} fixedWidth />
                                             </div>
-                                            <div className="example1-dropdown-menu-item__spacer" />
-                                            <div className="example1-dropdown-menu-item__text">Ver Minhas Viagens</div>
+                                            <div className="dropdown-menu-item__spacer" />
+                                            <div className="dropdown-menu-item__text">Ver Minhas Viagens</div>
                                         </NavbarDropdown.Item>
-                                        <NavbarDropdown.Item className="example1-dropdown-menu-item" onClick={props.handleLogout}>
+                                        <NavbarDropdown.Item className="dropdown-menu-item" onClick={props.handleLogout}>
                                             <div>
                                                 <FontAwesomeIcon style={{ color: "red" }} icon={faSignOutAlt} fixedWidth />
                                             </div>
-                                            <div className="example1-dropdown-menu-item__spacer" />
-                                            <div style={{ color: "red" }} className="example1-dropdown-menu-item__text">Sair</div>
+                                            <div className="dropdown-menu-item__spacer" />
+                                            <div style={{ color: "red" }} className="dropdown-menu-item__text">Sair</div>
                                         </NavbarDropdown.Item>
                                     </NavbarDropdown.CSSTransitionMenu>
                                 </NavbarDropdown>
