@@ -31,12 +31,12 @@ const LoginModal = ({ loginModalState, loginModalClose, loginFormState, setLogin
                     </Form.Group>
 
                     <Form.Group className="mb-4">
-                        <Form.Label><strong>Password</strong></Form.Label>
+                        <Form.Label><strong>Senha</strong></Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
                                 <FontAwesomeIcon icon={faKey} size='1x' />
                             </InputGroup.Text>
-                            <Form.Control value={loginFormState.password} onChange={(e) => setLoginFormState({...loginFormState, password: e.target.value })} type="password" placeholder="Password" />
+                            <Form.Control value={loginFormState.password} onChange={(e) => setLoginFormState({...loginFormState, password: e.target.value })} type="password" placeholder="Senha" />
                         </InputGroup>
                     </Form.Group>
 

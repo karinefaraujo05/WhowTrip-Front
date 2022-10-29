@@ -19,9 +19,9 @@ export default function ViewTripsCard({ user, userTripData, handleDelete, toThat
 
             {(user === userTripData.UserId) ? 
             (<div style={{alignSelf: "center", marginBottom: "10px"}}>
-                <span style={{color:"#4d5e85", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faCrown} size='1x' /> Host</span>
+                <span style={{color:"#4d5e85", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faCrown} size='1x' /> Organizador </span>
             </div>) :
-            (<div style={{alignSelf: "center", marginBottom: "10px"}}><span style={{color: "#4d5e85", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faIdBadge} size='1x' /> Participant</span></div>)
+            (<div style={{alignSelf: "center", marginBottom: "10px"}}><span style={{color: "#4d5e85", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faIdBadge} size='1x' /> Participantes</span></div>)
             }
 
             <div className="cityName">
@@ -50,14 +50,14 @@ export default function ViewTripsCard({ user, userTripData, handleDelete, toThat
                     e.preventDefault()
                     toThatTripHandler(userTripData.id)
                 }} className="btn tripViewBtn mb-2">
-                    View this Trip
+                    Veja esta viagem
                 </button>
                 {(user === userTripData.UserId) ?
                 (<button onClick={(e) => {
                     e.preventDefault()
                     handleDelete(userTripData.id)
                 }} className="btn tripDeleteBtn" >
-                    Delete this Trip
+                    Delete esta viagem
                 </button>) : (<></>)}
             </div>
         </div>

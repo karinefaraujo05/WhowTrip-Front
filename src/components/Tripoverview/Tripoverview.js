@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 
 // FONT AWESOME IMPORTS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faPlaneDeparture, faPlaneArrival, faCrown, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faPlaneDeparture, faPlaneArrival, faCrown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 // LOCAL IMPORTS
 import './Tripoverview.css';
@@ -33,7 +33,7 @@ export default function Tripoverview({ trip, plans }) {
             <Row className="summary-wrapper">
                 <Col sm={12} lg={6} className="summary-colum-left">
                     <div className="items-wrapper middle">
-                        <h4>The crew:</h4>
+                        <h4> Os viajantes:</h4>
                         <div className="overview-item trip-owner">
                             <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' />
                             {trip.User.username}
@@ -41,7 +41,7 @@ export default function Tripoverview({ trip, plans }) {
                         {trip.SavedUser.map((traveller, index) => {
                             return (
                                 <div className="overview-item" key={index}>
-                                    <FontAwesomeIcon icon={faUser} size='1x' className="me-2" />
+                                    <FontAwesomeIcon icon={faUserCircle} size='1x' className="me-2" />
                                     {traveller.username}
                                 </div>
                             )
@@ -50,7 +50,7 @@ export default function Tripoverview({ trip, plans }) {
                 </Col>
                 <Col sm={12} lg={6} className="summary-colum-right">
                     <div className="items-wrapper middle">
-                        <h4>The plans:</h4>
+                        <h4>Os itinerários:</h4>
                         {plans.map((plan, index) => {
                             return (
                                 <div className="overview-item" key={index}>

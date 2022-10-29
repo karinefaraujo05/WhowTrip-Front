@@ -108,7 +108,7 @@ export default function Budget(props) {
             <div className="add-budget-wrapper">
                 <button className="add-budget-button" onClick={toggleBudgetCategoryCreator}>
                     <FontAwesomeIcon icon={faPlusSquare} size='1x' className="me-2" />
-                    Add an item
+                    Adicione um gasto
                 </button>
             </div>
             <Container>
@@ -117,7 +117,7 @@ export default function Budget(props) {
                         <div className="header-wrapper mb-2">
                             <input
                                 className="budget-input-title"
-                                placeholder="Category Title"
+                                placeholder="Descrição"
                                 value={categoryDescription}
                                 onChange={(e) => {
                                     e.preventDefault();

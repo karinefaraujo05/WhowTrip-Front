@@ -1,5 +1,5 @@
 import axios from 'axios';
-// const URL_PREFIX = 'https://trips-refocused-server.herokuapp.com';
+// const URL_PREFIX = 'https://whowtrip-back.herokuapp.com/';
 const URL_PREFIX = 'http://localhost:3001';
     
 const api = {
@@ -18,37 +18,37 @@ const api = {
     deleteTrip: function(id, headers) {
         return axios.delete(`${URL_PREFIX}/api/trips/${id}`, headers)
     },
-    // GET ROUTES
-    // ----------
-    // get all trips
+    // ITINERÁRIOS GET ----------
+    
+    // busca de todas as viagens
     getTrips: function() {
         return axios.get(`${URL_PREFIX}/api/trips`);
     },
-    // get a single trip
+    // encontrar uma única viagem
     getSingleTrip: function(id) {
         return axios.get(`${URL_PREFIX}/api/trips/${id}`)
     },
-    // get a budget associated with a trip and a user
+    // encontrar um gasto relacionado a um único usuário
     getSingleBudget: function(tripId, userId) {
         return axios.get(`${URL_PREFIX}/api/budgets/trips/${tripId}/${userId}`);
     },
-    // get a single budget category by id
+    //  gasto por categoria
     getSingleBudgetCategory: function(categoryId) {
         return axios.get(`${URL_PREFIX}/api/categories/${categoryId}`);
     },
-    // get all comments associated with a trip
+    // ter todas as mensagens da viagem
     getAllTripComments: function(tripId) {
         return axios.get(`${URL_PREFIX}/api/comments/trips/${tripId}`)
     },
-    // get single comment by id
+    // ter um único comentário por id
     getSingleComment: function(commentId) {
         return axios.get(`${URL_PREFIX}/api/comments/${commentId}`);
     },
-    // get all users
+    // ver todos os usuários da viagem
     getAllUsers: function() {
         return axios.get(`${URL_PREFIX}/api/users`);
     },
-    // get all plans by trip id
+    // saber todos os itinerários da viagem em específico
     getAllTripPlans: function(tripId) {
         return axios.get(`${URL_PREFIX}/api/plans/trips/${tripId}`);
     },
@@ -116,5 +116,4 @@ const api = {
     },
 }
 
-
-export default api
+export default api;

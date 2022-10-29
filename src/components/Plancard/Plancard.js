@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Moment from 'react-moment';
 
@@ -44,7 +45,7 @@ export default function Plancard(props) {
                             props.handleDetailTarget(props.planData.id);
                         }}
                     >
-                        View Details
+                        Detalhes
                     </button>
                     {isUserPlanOwner() ? ( null ) : ( isUserInPlan() ? (
                         <button
@@ -54,7 +55,7 @@ export default function Plancard(props) {
                                 props.handleOptOut(props.planData.id);
                             }}
                         >
-                            Opt-out
+                            Indisponível
                         </button>
                     ) : (
                         <button
@@ -64,7 +65,7 @@ export default function Plancard(props) {
                                 props.handleOptIn(props.planData.id);
                             }}
                         >
-                            Opt-in
+                            Disponível
                         </button>
                     ))}
                 </div>

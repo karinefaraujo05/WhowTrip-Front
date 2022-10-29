@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 
 // FONT AWESOME IMPORTS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCrown, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCrown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 // BOOTSTRAP IMPORTS
 import Form from 'react-bootstrap/Form';
@@ -56,7 +56,7 @@ export default function Plandetails(props) {
     const deletePlan = (e) => {
         e.preventDefault();
 
-        if (window.confirm(`Are you sure you'd like to delete this plan?`)) {
+        if (window.confirm(`Você realmente quer deletar esse itinerário?`)) {
             props.planDeleteHandler(props.planData.id);
         };
     };
@@ -98,7 +98,7 @@ export default function Plandetails(props) {
                         className="plan-content-input"
                     />
                     <p className="plan-item-center">
-                        Approximate Cost: $
+                        Custo Aproximado: R$
                         <input
                             type="number"
                             step="0.01"
@@ -118,20 +118,20 @@ export default function Plandetails(props) {
                     {props.planData.SavedUser.map((savedUser, i) => {
                         return (
                             <div key={i} className="plan-partaker">
-                                <FontAwesomeIcon icon={faUser} size='1x' className='me-2' />
+                                <FontAwesomeIcon icon={faUserCircle} size='1x' className='me-2' />
                                 {savedUser.username}
                             </div>
                         )
                     })}
                     </div>
-                    <input type="submit" value="Update Plan ➜" className="edit-plan-input" />
+                    <input type="submit" value="Atualizar plano ➜" className="edit-plan-input" />
                 </form>
             ) : (
                 <>
                 <h3 className="plan-item-center">{props.planData.name}</h3>
                 <Moment className="plan-item-date" format="MMM Do YYYY" date = {props.planData.date} />
                 <p className="plan-item-center">{props.planData.content}</p>
-                <p className="plan-item-center">Approximate Cost: ${props.planData.budget}</p>
+                <p className="plan-item-center"> Custo Aproximado: R${props.planData.budget}</p>
                 <div className="plan-item-center opted-in-travellers">
                     <div className="plan-partaker plan-creator">
                         <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' />
@@ -140,7 +140,7 @@ export default function Plandetails(props) {
                     {props.planData.SavedUser.map((savedUser, i) => {
                         return (
                             <div key={i} className="plan-partaker">
-                                <FontAwesomeIcon icon={faUser} size='1x' className='me-2' />
+                                <FontAwesomeIcon icon={faUserCircle} size='1x' className='me-2' />
                                 {savedUser.username}
                             </div>
                         )
@@ -162,7 +162,7 @@ export default function Plandetails(props) {
                 <form onSubmit={submitPlanComment}>
                     <Form.Control
                         type="text"
-                        placeholder="Send a Comment!"
+                        placeholder="Dê sua opinião!"
                         value={commentValue}
                         onChange={(e) => {
                             e.preventDefault();

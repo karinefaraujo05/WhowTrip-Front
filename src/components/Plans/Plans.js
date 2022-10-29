@@ -54,7 +54,7 @@ export default function Plantab(props) {
             budget: 0,
             content: '',
             UserId: props.user.id,
-            date: moment(newPlanDate._d).format("MM/DD/YYYY"),
+            date: moment(newPlanDate._d).format("DD/MM/YYYY"),
         };
 
         const newPlanId = props.handlePlanCreate(body);
@@ -104,7 +104,7 @@ export default function Plantab(props) {
                         className="add-plan-button"
                         onClick={toggleIsAddingPlan}
                     >
-                        Add an Item
+                        Adicione um local
                     </button>
                     <div className="plan-cards-wrapper">
                         <>
@@ -112,7 +112,7 @@ export default function Plantab(props) {
                             <form className="plan-card" onSubmit={handlePlanCreate}>
                                 <input
                                     type="text"
-                                    placeholder="What's the plan?"
+                                    placeholder="Qual o destino?"
                                     value={newPlanName}
                                     onChange={(e) => {
                                         e.preventDefault();
@@ -131,7 +131,7 @@ export default function Plantab(props) {
                                         required={true}
                                     />
                                 </div>
-                                <input type="submit" value="Create plan!" className="submit-add-plan" />
+                                <input type="submit" value="Adicione uma rota! (Ex: 'Marco Zero, Recife')" className="submit-add-plan" />
                             </form>
                         ) : ( null )}
                         {props.planData.map((plan, i) => 
@@ -157,7 +157,7 @@ export default function Plantab(props) {
                         }}
                     >
                         <FontAwesomeIcon icon={faChevronCircleLeft} size='1x' className="me-2"/>
-                        Back
+                        Voltar
                     </button>
                     <Plandetails
                         planData={props.planData[targetPlanIndex]}

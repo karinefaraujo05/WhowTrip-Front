@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ViewTripsCard from '../components/ViewTripsCard/ViewTripsCard';
-import viewTripImg from '../images/viewTrip.png';
-import earth from '../images/earth.png';
+
+import viewTripImg from '../assets/viewTrip.png';
+import earth from '../assets/earth.png';
 import './ViewTrips.css';
 import api from '../utils/api';
 
@@ -22,7 +23,7 @@ export default function ViewTrips(props) {
     const tripDeleteHandler = async (tripId) => {
         const res = await api.deleteTrip(tripId, {
             headers: {
-                authorization: `Bearer ${props.token}`
+                authorization: `Viajante`
             }
         });
         if (res.status === 200) {
@@ -30,7 +31,7 @@ export default function ViewTrips(props) {
                 setUserTripData([...res.data.Trips, ...res.data.SavedTrip]);
             })
         } else {
-            console.log('Error updating trip');
+            console.log('Erro au atualizar viagem');
         }
     };
 
@@ -47,13 +48,13 @@ export default function ViewTrips(props) {
 
             <div className="viewTripsHeaderBox">
                 <img className="viewTripsBackgroundImg" src={viewTripImg} />
-                <h1 className="viewTripsHeader">Your Trips</h1>
+                <h1 className="viewTripsHeader"> Suas Viagens </h1>
                 <img className="earthImg" src={earth} />
             </div>
 
-            {/* <div className="viewTripsCardContainer">
+            <div className="viewTripsCardContainer">
                 {(userTripData.length === 0) ?
-                    (<div style={{ color: "white" }}><h3>You currently have no trips!</h3></div>)
+                    (<div style={{ color: "white" }}><h3>Você ainda não programou nenhuma viagem! </h3></div>)
                     :
                     <>
                         {
@@ -62,11 +63,11 @@ export default function ViewTrips(props) {
                             )
                         }
                     </>}
-            </div> */}
+            </div>
 
             <div>
                 <button style={{marginBottom:"40px"}} onClick={toCreateTripHandler} className="btn viewTripPageCreateBtn">
-                    Create a New Trip!
+                    Crie uma nova viagem!
                 </button>
             </div>
         </div>

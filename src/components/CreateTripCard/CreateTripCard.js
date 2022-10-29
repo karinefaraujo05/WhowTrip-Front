@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { usePlacesWidget } from 'react-google-autocomplete';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
@@ -45,10 +46,18 @@ export default function CreateTripCard(props) {
         setEndDate(endDate);
     };
 
+    const { ref: bootstrapRef } = usePlacesWidget({
+        apiKey: process.env.REACT_APP_GOOGLE_API,
+        language: "en",
+        onPlaceSelected: (place) => {
+            setDestination(place.formatted_address);
+        },
+    });
+
     const handleCreateTripFormSubmit = async (e) => {
         e.preventDefault();
-        const formattedStartDate = moment.unix(startDate / 1000).format("MM/DD/YYYY");
-        const formattedEndDate = moment.unix(endDate / 1000).format("MM/DD/YYYY");
+        const formattedStartDate = moment.unix(startDate / 1000).format("DD/MM/YYYY");
+        const formattedEndDate = moment.unix(endDate / 1000).format("DD/MM/YYYY");
 
         try {
             const res = await api.createTrip({ 
@@ -59,7 +68,7 @@ export default function CreateTripCard(props) {
                 UserId: props.user.id
             }, {
                 headers: {
-                    authorization: `Bearer ${props.token}`
+                    authorization: `Viajante ${props.token}`
                 }
             });
 
@@ -68,7 +77,7 @@ export default function CreateTripCard(props) {
                 UserId: props.user.id
             }, {
                 headers: {
-                    authorization: `Bearer ${props.token}`,
+                    authorization: `Viajante ${props.token}`,
                 }
             });
     
@@ -96,33 +105,33 @@ export default function CreateTripCard(props) {
             <div className="createTripBackground">
                 <div className="create-trip-main">
                     <h1 className="createTripHeader mb-5">
-                        Create your Trip!
+                        Crie a sua viagem!
                     </h1>
 
                     <Form onSubmit={handleCreateTripFormSubmit}>
 
                         <Form.Group className="formGroup mb-5" controlId="tripName">
-                            <Form.Label className="labelName"><h5>Trip Name</h5></Form.Label>
+                            <Form.Label className="labelName"><h5>Nome da sua viagem</h5></Form.Label>
                             <InputGroup className="inputStyle">
                                 <InputGroup.Text>
                                     <FontAwesomeIcon icon={faPencilAlt} size='1x' />
                                 </InputGroup.Text>
-                                <Form.Control value={tripName} onChange={(e) => setTripName(e.target.value)} type="text" placeholder="Name your Trip!" />
+                                <Form.Control value={tripName} onChange={(e) => setTripName(e.target.value)} type="text" placeholder="Nomeie a sua viagem!" />
                             </InputGroup>
                         </Form.Group>
 
                         <Form.Group className="formGroup mb-5" controlId="destination">
-                            <Form.Label className="labelName"><h5>Destination</h5></Form.Label>
+                            <Form.Label className="labelName"><h5>Destino</h5></Form.Label>
                             <InputGroup className="inputStyle">
                                 <InputGroup.Text>
                                     <FontAwesomeIcon icon={faCity} size='1x' />
                                 </InputGroup.Text>
-                                <Form.Control value={destination} onChange={(e) => setDestination(e.target.value)} type="text" />
+                                <Form.Control value={destination} onChange={(e) => setDestination(e.target.value)} type="text" ref={bootstrapRef} />
                             </InputGroup>
                         </Form.Group>
 
                         <Form.Group className="mb-5" controlId="dates">
-                            <Form.Label className="labelName"><h5>Dates</h5></Form.Label>
+                            <Form.Label className="labelName"><h5>Datas</h5></Form.Label>
                             <InputGroup className="datePicker-mobile">
                                 <DateRangePicker
                                     startDate={startDate} // momentPropTypes.momentObj or null,
@@ -142,12 +151,12 @@ export default function CreateTripCard(props) {
                         </Form.Group>
 
                         <Form.Group className="d-flex justify-content-evenly">
-                            <Button type="submit" value="createTrip" className="createTripBtn">
-                                <FontAwesomeIcon className="createTripBtnIcon" icon={faSuitcase} size='1x' />Create!
+                            <Button type="submit" value="Crie a viagem" className="createTripBtn">
+                                <FontAwesomeIcon className="createTripBtnIcon" icon={faSuitcase} size='1x' />Criar!
                             </Button>
                             <Link to="/">
                                 <Button className="createTripCancelBtn">
-                                    <FontAwesomeIcon className="createTripCancelBtnIcon" icon={faPlaneSlash} size='1x' />Cancel
+                                    <FontAwesomeIcon className="createTripCancelBtnIcon" icon={faPlaneSlash} size='1x' />Cancelar
                                 </Button>
                             </Link>
                         </Form.Group>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import Moment from 'react-moment';
 import { useParams } from 'react-router-dom';
@@ -66,7 +67,7 @@ export default function Lounge(props) {
             setVisibleSearchedUsers(searchResults);
         }
 
-    }, [searchedUser]);
+    }, [allUsers, searchedUser]);
 
 
     // HELPER FUNCTIONS 
@@ -124,7 +125,7 @@ export default function Lounge(props) {
         <Row style={{marginTop: '20px'}}>
             <Col lg={3}>
                 <div className="travellers">
-                    <h3 style={{alignSelf: 'center', lineHeight: '1.5em'}}>Travellers</h3>
+                    <h3 style={{alignSelf: 'center', lineHeight: '1.5em'}}>Viajantes</h3>
                     <div className="traveller">
                         <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' />
                         {props.creator.username}
@@ -142,7 +143,7 @@ export default function Lounge(props) {
                             <Form.Control
                                 className="user-search-bar"
                                 type="text"
-                                placeholder="Search by username"
+                                placeholder="Procure por UserName"
                                 value={searchedUser}
                                 onChange={(e) => {
                                     e.preventDefault();
@@ -177,7 +178,7 @@ export default function Lounge(props) {
             </Col>
             <Col lg={9}>
                 <div className="message-board">
-                    <h3>Message Board</h3>
+                    <h3>Quadro de Opiniões</h3>
                     {viewAll === true ? (
                         <div className="messages">
                             {props.messages.map(message => {
@@ -209,7 +210,7 @@ export default function Lounge(props) {
                                 onClick={handleExitCommentViewerClick}
                             >
                                 <FontAwesomeIcon icon={faChevronCircleLeft} size='1x' className="me-2"/>
-                                Back
+                                Voltar
                             </button>
                             <div className="comment-subject-wrapper">
                                 <h6 className="comment-subject-content">{props.messages[targetCommentIndex].content}</h6>
@@ -218,7 +219,7 @@ export default function Lounge(props) {
                                     <Moment className="comment-subject-date" format="MMM Do YYYY" date = {props.messages[targetCommentIndex].createdAt} />
                                 </p>
                             </div>
-                            <p>Replies:</p>
+                            <p>Respostas:</p>
                             {props.messages[targetCommentIndex].SubComment ? (props.messages[targetCommentIndex].SubComment.map(message =>
                                 (<Message
                                     key={message.id}
@@ -234,7 +235,7 @@ export default function Lounge(props) {
                         <form id="post-submit-form" onSubmit={postSubmitHandler}>
                             <Form.Control
                                 type="text"
-                                placeholder="Share your thoughts!"
+                                placeholder="Escreva o que pensa sobre esse lugar!"
                                 value={postContent}
                                 onChange={(e) => {
                                     e.preventDefault();
@@ -246,7 +247,7 @@ export default function Lounge(props) {
                         <form id="comment-submit-form" onSubmit={commentSubmitHandler}>
                             <Form.Control
                                 type="text"
-                                placeholder="Send a Comment!"
+                                placeholder="Deixe a sua opinião!"
                                 value={commentContent}
                                 onChange={(e) => {
                                     e.preventDefault();

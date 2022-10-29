@@ -22,13 +22,11 @@ function App() {
   });
 
   useEffect(() => {
-    document.title = "Trips Refocused";
-    const token = localStorage.getItem('token');
+    document.title = "WHOW TRIP";
     const userId = localStorage.getItem('userId');
-    if (token && userId) {
-      api.getUser(userId, token).then(res => {
+    if (userId) {
+      api.getUser(userId).then(res => {
         setUserState({
-          token: token,
           user: {
             email: res.data.email,
             id: res.data.id,
@@ -39,42 +37,37 @@ function App() {
       }).catch(err => {
         console.log('no logged in user');
         setUserState({
-          token: "",
           user: {}
         })
       })
-    } else {
-      console.log('no token provided');
     }
   }, []);
 
   const handleLogout = () => {
     setUserState({
-        token: "",
         user: {}
     });
-    localStorage.removeItem('token');
     localStorage.removeItem('userId');
     window.location = '/';
 };
 
   return (
     <div style={{ minHeight: '100vh', background: '#202530', overflowX: 'hidden' }}>
-      <Navigation setUserState={setUserState} userState={userState} user={userState.user} token={userState.token} handleLogout={handleLogout}/>
+      <Navigation setUserState={setUserState} userState={userState} user={userState.user} handleLogout={handleLogout}/>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Main setUserState={setUserState} userState={userState} user={userState.user} token={userState.token} handleLogout={handleLogout}/>
+            <Main setUserState={setUserState} userState={userState} user={userState.user} handleLogout={handleLogout}/>
             <ScrollToTop smooth />
           </Route>
           <Route path="/trips/:id">
-            <Trips user={userState.user} token={userState.token} />
+            <Trips user={userState.user} />
           </Route>
           <Route path="/createTrip">
-            <CreateTrip setUserState={setUserState} userState={userState} user={userState.user} token={userState.token}/>
+            <CreateTrip setUserState={setUserState} userState={userState} user={userState.user}/>
           </Route>
           <Route path="/viewTrips">
-            <ViewTrips setUserState={setUserState} userState={userState} user={userState.user} token={userState.token} trips={userState.user.trips}/>
+            <ViewTrips setUserState={setUserState} userState={userState} user={userState.user} trips={userState.user.trips}/>
           </Route>
           <Route path="/about">
             <AboutTeam/>

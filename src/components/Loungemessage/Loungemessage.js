@@ -26,7 +26,7 @@ export default function Message({ message, user, handleDelete }) {
                     className="message-delete-button"
                     onClick={(e) => {
                         e.preventDefault();
-                        e.stopPropagation(); // thanks nate :)
+                        e.stopPropagation();
                         handleDelete(message.id)
                     }}
                 >

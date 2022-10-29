@@ -46,7 +46,7 @@ const SignupModal = ({ signupModalState, signupModalClose }) => {
                             <InputGroup.Text>
                                 <FontAwesomeIcon icon={faUser} size='1x' />
                             </InputGroup.Text>
-                            <Form.Control value={signupFormState.username} onChange={(e) => setSignupFormState({ ...signupFormState, username: e.target.value })} type="text" placeholder="Username" />
+                            <Form.Control value={signupFormState.username} onChange={(e) => setSignupFormState({ ...signupFormState, username: e.target.value })} type="text" placeholder="SeuNome" />
                         </InputGroup>
                     </Form.Group>
 
@@ -61,18 +61,18 @@ const SignupModal = ({ signupModalState, signupModalClose }) => {
                     </Form.Group>
 
                     <Form.Group className="mb-4">
-                        <Form.Label><strong>Password</strong></Form.Label>
+                        <Form.Label><strong>Senha</strong></Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
                                 <FontAwesomeIcon icon={faLock} size='1x' />
                             </InputGroup.Text>
-                            <Form.Control value={signupFormState.password} onChange={(e) => setSignupFormState({ ...signupFormState, password: e.target.value })} type="password" placeholder="Password" />
+                            <Form.Control value={signupFormState.password} onChange={(e) => setSignupFormState({ ...signupFormState, password: e.target.value })} type="password" placeholder="Senha" />
                         </InputGroup>
                     </Form.Group>
 
                     <Form.Group className="signupModalFooter">
                         <Button type="submit" value="signup" className="signupModalBtn mx-2" onClick={signupModalClose}>
-                            Signup
+                            Entrar
                         </Button>
                         <Button className="signupModalCancelBtn mx-2" onClick={signupModalClose}>
                             Cancel

@@ -53,7 +53,7 @@ export default function Tripcard({ user, token }) {
         // create new plan
         const res = await api.createPlan(body, {
             headers: {
-                authorization: `Bearer ${token}`
+                authorization: `Viajante ${token}`
             }
         })
 
@@ -68,22 +68,21 @@ export default function Tripcard({ user, token }) {
         }
     };
 
-    // HANDLE DELETING A PLAN
+    // Deletando um itinerário
     const planDeleteHandler = async (planId) => {
-        // delete plan
+        // delete itinerário
         const res = await api.deletePlan(planId, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
-        // on success, retrieve new trip data for re-render
         if (res.status === 200) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
             return true
         } else {
-            alert('Error deleting plan...')
+            alert('Erro ao deletar itinerário...')
             return false
         }
     }
@@ -93,7 +92,7 @@ export default function Tripcard({ user, token }) {
         // update plan
         const res = await api.updatePlan(planId, body, {
             headers: {
-                authorization: `Bearer: ${token}`,
+                authorization: `Viajante: ${token}`,
             }
         });
 
@@ -109,7 +108,7 @@ export default function Tripcard({ user, token }) {
         // create new comment
         const res = await api.createComment(body, {
             headers: {
-                authorization: `Bearer ${token}`
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -126,7 +125,7 @@ export default function Tripcard({ user, token }) {
         // delete comment
         const res = await api.deleteComment(commentId, {
             headers: {
-                authorization: `Bearer ${token}`
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -199,7 +198,7 @@ export default function Tripcard({ user, token }) {
             total: newTotal
         }, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -219,7 +218,7 @@ export default function Tripcard({ user, token }) {
         // create new category
         const res = await api.createBudgetCategory(body, {
             headers: {
-                authorization: `Bearer ${token}`
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -237,7 +236,7 @@ export default function Tripcard({ user, token }) {
     const budgetCategoryUpdateHandler = async (categoryId, body) => {
         const res = await api.updateBudgetCategory(categoryId, body, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -253,7 +252,7 @@ export default function Tripcard({ user, token }) {
     const budgetCategoryDeleteHandler = async (categoryId) => {
         const res = await api.deleteBudgetCategory(categoryId, {
             headers: {
-                authorization: `Bearer ${token}`
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -271,7 +270,7 @@ export default function Tripcard({ user, token }) {
     const budgetItemCreateHandler = async (body) => {
         const res = await api.createBudgetItem(body, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -287,7 +286,7 @@ export default function Tripcard({ user, token }) {
     const budgetItemUpdateHandler = async (itemId, body) => {
         const res = await api.updateBudgetItem(itemId, body, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -303,7 +302,7 @@ export default function Tripcard({ user, token }) {
     const budgetItemDeleteHandler = async (itemId) => {
         const res = await api.deleteBudgetItem(itemId, {
             headers: {
-                authorization: `Bearer ${token}`
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -340,7 +339,7 @@ export default function Tripcard({ user, token }) {
             UserId: userId
         }, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -350,7 +349,7 @@ export default function Tripcard({ user, token }) {
             UserId: userId
         }, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -365,7 +364,7 @@ export default function Tripcard({ user, token }) {
     const postCreateHandler = async (body) => {
         const res = await api.createComment(body, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -381,7 +380,7 @@ export default function Tripcard({ user, token }) {
     const postDeleteHandler = async (postId) => {
         const res = await api.deleteComment(postId, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -398,9 +397,7 @@ export default function Tripcard({ user, token }) {
     // ----------------------------------------------------------
 
 
-
-
-    
+ 
     // RENDER APPROPRIATE CONTENT
     // --------------------------
 
@@ -434,7 +431,7 @@ export default function Tripcard({ user, token }) {
         } else if (activeTab === 'Plans') {
             return (
                 <div>
-                    <h1>Plans</h1>
+                    <h1>Itinerários</h1>
                     <Plantab
                         planData={planData}
                         user={user}
@@ -452,7 +449,7 @@ export default function Tripcard({ user, token }) {
         } else if (activeTab === 'Budget') {
             return (
                 <div>
-                    <h1>Budget</h1>
+                    <h1>Gastos</h1>
                     <Budget
                         user={user}
                         token={token}
@@ -471,7 +468,7 @@ export default function Tripcard({ user, token }) {
         } else if (activeTab === 'Lounge') {
             return (
                 <div>
-                    <h1>Travel Lounge</h1>
+                    <h1>Chat</h1>
                     <Lounge
                         user={user}
                         token={token}
@@ -493,10 +490,10 @@ export default function Tripcard({ user, token }) {
         <Container fluid className="trips-main">
             <Container>
                 <div className="trip-nav">
-                    <button className="trip-nav-item trip-nav-active" id="Overview" onClick={handleTabSwitch} ref={overviewRef}>Overview</button>
-                    <button className="trip-nav-item" id="Plans" onClick={handleTabSwitch} ref={plansRef}>Plans</button>
-                    <button className="trip-nav-item" id="Budget" onClick={handleTabSwitch} ref={budgetRef}>Budget</button>
-                    <button className="trip-nav-item" id="Lounge" onClick={handleTabSwitch} ref={loungeRef}>Lounge</button>
+                    <button className="trip-nav-item trip-nav-active" id="Overview" onClick={handleTabSwitch} ref={overviewRef}>Resumo</button>
+                    <button className="trip-nav-item" id="Plans" onClick={handleTabSwitch} ref={plansRef}>Itinerários</button>
+                    <button className="trip-nav-item" id="Budget" onClick={handleTabSwitch} ref={budgetRef}>Gastos</button>
+                    <button className="trip-nav-item" id="Lounge" onClick={handleTabSwitch} ref={loungeRef}>Chat</button>
                 </div>
                 <div className="trip-content">
                     {renderTab()}

@@ -1,11 +1,11 @@
 .contactFormMain {
-    margin-top: 200px;
+    margin-top: 130px;
 }
 
 .contactFormHeader {
     color: white !important;
     text-align: center !important;
-    margin-bottom: 30px !important;
+    margin-bottom: 20px !important;
 }
 
 .contactFormStyle {
@@ -15,7 +15,7 @@
 }
 
 .formFont {
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .contactFormNameEmail {
@@ -28,19 +28,19 @@
 }
 
 .contactFormName {
-    width: 40%;
+    width: 30%;
 }
 
 .contactFormEmail {
-    width: 40%;
+    width: 30%;
 }
 
 .contactFormMessage {
-    width: 40%;
+    width: 30%;
 }
 
 .contactSendBtn {
-    background-color: rgb(71, 110, 158) !important;
+    background-color: #0AA1DD !important;
     border-style: hidden !important;
     border-radius: 10px !important;
     display: flex;
@@ -48,7 +48,7 @@
 }
 
 .contactSendBtn h5{
-    margin-bottom: 0 !important;
+    margin-bottom: 1 !important;
 }
 
 .sendIcon {
@@ -59,9 +59,6 @@
     transform: scale(0.95);
 }
 
-.contactSendBtn::after {
-    text-decoration: none;
-}
 
 @media screen and (max-width: 576px) {
     .contactFormName {

@@ -131,7 +131,7 @@ export default function Budgetcard(props) {
                         <div className="budgettable-item-left">
                             <input
                                 type="text"
-                                placeholder="Enter item..."
+                                placeholder="Descreva o gasto..."
                                 value={newItemValue}
                                 required
                                 onChange={(e) => {
@@ -143,7 +143,7 @@ export default function Budgetcard(props) {
                         <div className="budgettable-item-right">
                             <input
                                 type="number"
-                                placeholder="Enter price..."
+                                placeholder="Digite o preço..."
                                 step="0.01"
                                 value={newItemPrice}
                                 required
