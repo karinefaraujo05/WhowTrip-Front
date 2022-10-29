@@ -16,7 +16,7 @@ export default function Features() {
             <div className="features-content">
                 <div className="features-card">
 
-                    <img className="features-1-img" id="features-budget-img-mobile" src="https://images.unsplash.com/photo-1648737965328-0c7f98c86f98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" />
+                    <img className="features-1-img" id="features-budget-img-mobile" src="https://images.unsplash.com/photo-1525026198548-4baa812f1183?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80" />
 
                     <div className="features-card-main" id="main1">
                         <div className="features-card-number">
@@ -36,7 +36,7 @@ export default function Features() {
                 </div>
                 <div className="features-card">
 
-                    <img className="features-2-img-mobile" src="https://images.unsplash.com/photo-1648737965328-0c7f98c86f98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" />
+                    <img className="features-2-img-mobile" src="https://images.unsplash.com/photo-1525026198548-4baa812f1183?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80" />
 
                     <div className="features-card-main">
                         <div className="features-card-number">

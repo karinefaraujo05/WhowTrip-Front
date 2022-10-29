@@ -1,12 +1,8 @@
-/* ============================= */
-/* =       NAVBAR STYLING      = */
-/* ============================= */
-
 .custom-nav {
-  background: #202530;
-  padding-top: 1.5em !important;
-  padding-bottom: 1.5em !important;
-  font-family: "Assistant", sans-serif !important;
+  background: #9AD0EC;
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .container-mobile {
@@ -28,7 +24,6 @@
 }
 
 .custom-navbar-items {
-  /* font-family: 'Klee One', cursive; */
   font-weight: bold;
   width: 100%;
   display: flex;

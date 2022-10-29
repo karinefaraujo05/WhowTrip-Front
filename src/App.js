@@ -7,7 +7,7 @@ import Navigation from './components/Navigation/Navigation.js';
 import Main from './pages/Main.js';
 import Trips from './pages/Trips.js';
 import CreateTrip from './pages/CreateTrip.js';
-import AboutTeam from './pages/AboutTeam.js';
+import AboutUs from './pages/AboutUs.js';
 import ViewTrips from './pages/ViewTrips.js';
 import ContactForm from './pages/ContactForm';
 import api from './utils/api';
@@ -52,7 +52,7 @@ function App() {
 };
 
   return (
-    <div style={{ minHeight: '100vh', background: '#202530', overflowX: 'hidden' }}>
+    <div style={{ minHeight: '100vh', background: '#b8e1f2', overflowX: 'hidden' }}>
       <Navigation setUserState={setUserState} userState={userState} user={userState.user} handleLogout={handleLogout}/>
       <Router>
         <Switch>
@@ -70,7 +70,7 @@ function App() {
             <ViewTrips setUserState={setUserState} userState={userState} user={userState.user} trips={userState.user.trips}/>
           </Route>
           <Route path="/about">
-            <AboutTeam/>
+            <AboutUs/>
           </Route>
           <Route path="/contactForm">
             <ContactForm/>

@@ -48,7 +48,7 @@ export default function CreateTripCard(props) {
 
     const { ref: bootstrapRef } = usePlacesWidget({
         apiKey: process.env.REACT_APP_GOOGLE_API,
-        language: "en",
+        language: "pt",
         onPlaceSelected: (place) => {
             setDestination(place.formatted_address);
         },

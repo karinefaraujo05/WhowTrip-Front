@@ -1,215 +1,226 @@
 .recommendation-main {
-    background: #c2bcbc;
-    color: #4d5e85;
-    height:auto;
-    padding-top: 2em;
-    font-family: 'Assistant', sans-serif !important;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 3em;
-  }
+  background: #E8F9FD;
+  color: #1572A1;
+  height:auto;
+  padding-top: 2em;
+  font-family: 'Montserrat', sans-serif !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3em;
+}
+
+.destination {
+  margin: 20px;
+  width: 80px;
+  height: 80px;
+}
+
+.recommendation-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bolder !important;
+
+  margin-top: 10px;
+}
+
+
+.img-box {
+  width: 40% !important;
+  height: 150px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none !important;
+  margin-bottom: 20px;
+}
+
+.child {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+.img-box:hover .child, .img-box:focus .child {
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.img-box:hover .child:before, .img-box:focus .child:before {
+  display: block;
+}
+
+.img-box:hover h5, .img-box:focus h5 {
+  display: block;
+}
+
+.child:before {
+  content: "";
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.child h3 {
+  color: white;
+  font-weight: bold;
+}
+
+.child h5 {
+  display: none;
+  color: #ffffff !important;
+  font-family: sans-serif;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 50px;
+  cursor: pointer;
+}
+
+.recCityName {
+  text-shadow: 2px 2px black !important;
+}
+
+.recTourist {
+  text-shadow: 2px 2px black !important;
+}
+
+.img1 {
+  width:100%;
+  height:100%;
+  background-image: url(https://i.pinimg.com/originals/81/c3/5d/81c35dfac8d803ebda02aca21242a46f.jpg);
+  filter:opacity(90%);
+  background-size: 800px 100%;
+  background-position: center;
+}
+
+.img2 {
+  width:100%;
+  height:100%;
+  background-image: url(https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2021/11/fundo-RDMD-SESC-SENAC.jpg?w=876&h=484&crop=1);
+  background-size: 800px 100%;
+  background-position: center;
+}
+
+.img3 {
+  width:100%;
+  height:100%;
+  background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0c/db/c1/d4/aquario-encantado-flutuacao.jpg);
+  background-size: 800px 100%;
+  background-position: center;
+}
+
+.img4 {
+  width:100%;
+  height:100%;
+  background-image: url(https://i1.wp.com/pisa.tur.br/blog/wp-content/uploads/2018/06/diamantina_capablog.jpg?fit=1024%2C448&ssl=1);
+  background-size: 800px 100%;
+  background-position: center;
+}
+
+.img5 {
+  width:100%;
+  height:100%;
+  background-image: url(https://www.aulatica.com.br/wp-content/uploads/2021/01/bioma-amazonia-caracteristicas-1255x500.jpg);
+  background-size: 800px 100%;
+  background-position: center;
+}
+
+.img6 {
+  width:100%;
+  height:100%;
+  background-image: url(https://hoteisfioreze.com.br/wp-content/uploads/2019/09/o-que-fazer-em-gramado.jpg);
+  background-size: 800px 100%;
+  background-position: center;
+}
+
+@media screen and (max-width: 576px) {
 
   .globeLogo {
-    margin: 25px 0px;
     width: 80px;
     height: 80px;
   }
-  
-  .recommendation-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  
-    margin-top: 2em;
-  }
 
   .recommendation-header-main {
-    font-weight: bolder !important;
+    display: none;
   }
 
   .recommendation-header-mobile {
-    display:none;
-    color: #4d5e85;
-    font-weight: bold !important;
+    display: block;
   }
 
   .img-box {
-    width: 60% !important;
-    height: 350px;
+    width: 80% !important;
+    height: 200px;
     overflow: hidden;
     cursor: pointer;
     text-decoration: none !important;
   }
-  
-  .child {
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-  }
-  
-  .img-box:hover .child, .img-box:focus .child {
-    -ms-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  
-  .img-box:hover .child:before, .img-box:focus .child:before {
-    display: block;
-  }
-  
-  .img-box:hover h5, .img-box:focus h5 {
-    display: block;
-  }
-  
-  .child:before {
-    content: "";
-    display: none;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  .child h3 {
-    color: white;
-    font-weight: bold;
-  }
-  
-  .child h5 {
-    display: none;
-    color: #ffffff !important;
-    font-family: sans-serif;
-    text-align: center;
-    margin: auto;
-    position: absolute;
-    top: 100px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 50px;
-    cursor: pointer;
-  }
-
-  .recCityName {
-    text-shadow: 2px 2px black !important;
-  }
-
-  .recCityFamous {
-    text-shadow: 2px 2px black !important;
-  }
 
   .img1 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1597552861784-d9c01e07870a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fHNlb3VsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
-    background-size: 800px 100%;
-    background-position: center;
-  }
+  width:100%;
+  height:100%;
+  background-image: url(https://i.pinimg.com/originals/81/c3/5d/81c35dfac8d803ebda02aca21242a46f.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
-  .img2 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1509299349698-dd22323b5963?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);
-    background-size: 800px 100%;
-    background-position: center;
-  }
+.img2 {
+  width:100%;
+  height:100%;
+  background-image: url(https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2021/11/fundo-RDMD-SESC-SENAC.jpg?w=876&h=484&crop=1);
+  background-size: cover;
+  background-position: center;
+}
 
-  .img3 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1500380804539-4e1e8c1e7118?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmlnYmVufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
-    background-size: 800px 100%;
-    background-position: center;
-  }
-  
-  .img4 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1506374322094-6021fc3926f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2606&q=80);
-    background-size: 800px 100%;
-    background-position: center;
-  }
+.img3 {
+  width:100%;
+  height:100%;
+  background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0c/db/c1/d4/aquario-encantado-flutuacao.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
-  .img5 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);
-    background-size: 800px 100%;
-    background-position: center;
-  }
+.img4 {
+  width:100%;
+  height:100%;
+  background-image: url(https://i1.wp.com/pisa.tur.br/blog/wp-content/uploads/2018/06/diamantina_capablog.jpg?fit=1024%2C448&ssl=1);
+  background-size: cover;
+  background-position: center;
+}
 
-  @media screen and (max-width: 576px) {
+.img5 {
+  width:100%;
+  height:100%;
+  background-image: url(https://www.aulatica.com.br/wp-content/uploads/2021/01/bioma-amazonia-caracteristicas-1255x500.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
-    .globeLogo {
-      width: 80px;
-      height: 80px;
-    }
+.img6 {
+  width:100%;
+  height:100%;
+  background-image: url(https://hoteisfioreze.com.br/wp-content/uploads/2019/09/o-que-fazer-em-gramado.jpg);
+  background-size: 800px 100%;
+  background-position: center;
+}
 
-    .recommendation-header-main {
-      display: none;
-    }
-
-    .recommendation-header-mobile {
-      display: block;
-    }
-
-    .img-box {
-      width: 80% !important;
-      height: 250px;
-      overflow: hidden;
-      cursor: pointer;
-      text-decoration: none !important;
-    }
-
-    .img1 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1597552861784-d9c01e07870a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fHNlb3VsfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
-    background-size: cover;
-    background-position: center;
-  }
-
-  .img2 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1509299349698-dd22323b5963?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);
-    background-size: cover;
-    background-position: center;
-  }
-
-  .img3 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1500380804539-4e1e8c1e7118?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmlnYmVufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .img4 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1506374322094-6021fc3926f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2606&q=80);
-    background-size: cover;
-    background-position: center;
-  }
-
-  .img5 {
-    width:100%;
-    height:100%;
-    background-image: url(https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);
-    background-size: cover;
-    background-position: center;
-  }
-  }
+}

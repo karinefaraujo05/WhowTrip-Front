@@ -1,7 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text */
-
 import React from 'react';
-
 import Logo from '../../assets/Logo.svg';
 
 // BOOTSTRAP IMPORTS
@@ -35,14 +32,15 @@ export default function Navigation(props) {
         window.location = '/viewTrips'
     };
 
-    const logo = <img src={Logo} />;
-    const logofooter = <img src={Logo} width="180" height="60" />;
     return (
         <div>
             {!props.user?.username ? (<Navbar
                 expand="lg"
                 className="navbar custom-nav fixed-top">
                 <Container fluid style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex' }}>
+                        <Nav.Link className="custom-navlink-text mx-4 mb-2" href="/"><img src={Logo} width="180" height="60" /></Nav.Link>
+                    </div>
                     <Navbar.Toggle className="navbar-toggler" aria-controls="basic-navbar-nav">
                         <span><FontAwesomeIcon style={{ color: "white" }} icon={faBars}/></span>
                     </Navbar.Toggle>
@@ -51,7 +49,7 @@ export default function Navigation(props) {
                             <div style={{ display: 'flex' }}>
                                 {(isHome === true &&
                                     <div className="custom-navlink-list">
-                                        <Nav.Link className="custom-navlink-text mx-3 mb-1" href="/">{logo}</Nav.Link>
+                                        <Nav.Link className="custom-navlink-text mx-3 mb-1" href="/">{Logo}</Nav.Link>
                                         <Nav.Link className="custom-navlink-text text-light" href="#features"><span className="navbar-content">PLANEJAMENTO</span></Nav.Link>
                                         <Nav.Link className="custom-navlink-text text-light" href="#recommendation"><span className="navbar-content">RECOMENDAÇÕES</span></Nav.Link>
                                         <Nav.Link className="custom-navlink-text text-light" href="#contact"><span className="navbar-content">CONTATO</span></Nav.Link>
@@ -66,7 +64,7 @@ export default function Navigation(props) {
                 className="navbar custom-nav fixed-top">
                 <Container fluid className="container-mobile">
                     <div className="loggedinLogo">
-                        <Nav.Link className="custom-navlink-text mx-4" href="/">{logofooter}</Nav.Link>
+                        <Nav.Link className="custom-navlink-text mx-4" href="/"><img src={Logo} width="180" height="60" /></Nav.Link>
                     </div>
                     <div className="navbar-container">
                         <Nav className="custom-navbar-items">
@@ -82,28 +80,28 @@ export default function Navigation(props) {
                                         </NavbarDropdown.Close>
                                     </NavbarDropdown.Toggle>
                                     <NavbarDropdown.CSSTransitionMenu
-                                        className="dropdown-menu" timeout={200}
+                                        className="example1-dropdown-menu" timeout={200}
                                     >
-                                        <NavbarDropdown.Item className="dropdown-menu-item" onClick={toCreateTripPage}>
+                                        <NavbarDropdown.Item className="example1-dropdown-menu-item" onClick={toCreateTripPage}>
                                             <div>
                                                 <FontAwesomeIcon icon={faCalendarPlus} fixedWidth/>
                                             </div>
-                                            <div className="dropdown-menu-item__spacer" />
-                                            <div className="dropdown-menu-item__text">Crie uma nova viagem</div>
+                                            <div className="example1-dropdown-menu-item__spacer" />
+                                            <div className="example1-dropdown-menu-item__text">Criar Nova Viagem</div>
                                         </NavbarDropdown.Item>
-                                        <NavbarDropdown.Item className="dropdown-menu-item" onClick={toViewTripsPage}>
+                                        <NavbarDropdown.Item className="example1-dropdown-menu-item" onClick={toViewTripsPage}>
                                             <div>
                                                 <FontAwesomeIcon icon={faBookmark} fixedWidth />
                                             </div>
-                                            <div className="dropdown-menu-item__spacer" />
-                                            <div className="dropdown-menu-item__text">Ver minhas viagens</div>
+                                            <div className="example1-dropdown-menu-item__spacer" />
+                                            <div className="example1-dropdown-menu-item__text">Ver Minhas Viagens</div>
                                         </NavbarDropdown.Item>
-                                        <NavbarDropdown.Item className="dropdown-menu-item" onClick={props.handleLogout}>
+                                        <NavbarDropdown.Item className="example1-dropdown-menu-item" onClick={props.handleLogout}>
                                             <div>
                                                 <FontAwesomeIcon style={{ color: "red" }} icon={faSignOutAlt} fixedWidth />
                                             </div>
-                                            <div className="dropdown-menu-item__spacer" />
-                                            <div style={{ color: "red" }} className="dropdown-menu-item__text">Sair</div>
+                                            <div className="example1-dropdown-menu-item__spacer" />
+                                            <div style={{ color: "red" }} className="example1-dropdown-menu-item__text">Sair</div>
                                         </NavbarDropdown.Item>
                                     </NavbarDropdown.CSSTransitionMenu>
                                 </NavbarDropdown>
