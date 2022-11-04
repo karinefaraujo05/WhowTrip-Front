@@ -39,7 +39,7 @@ export default function CreateTripCard(props) {
         } else {
             setCalendarStack("horizontal");
         }
-    }, [window.innerWidth]);
+    }, []);
 
     const handleDatesChange = ({ startDate, endDate }) => {
         setStartDate(startDate);
@@ -96,10 +96,6 @@ export default function CreateTripCard(props) {
         }
     }
 
-    const toViewTripPage = async () => {
-        window.location.href = '/viewTrips';
-    }
-
     return (
         <>
             <div className="createTripBackground">
@@ -111,7 +107,7 @@ export default function CreateTripCard(props) {
                     <Form onSubmit={handleCreateTripFormSubmit}>
 
                         <Form.Group className="formGroup mb-5" controlId="tripName">
-                            <Form.Label className="labelName"><h5>Nome da sua viagem</h5></Form.Label>
+                            <Form.Label className="labelName"><h5>Título da sua viagem</h5></Form.Label>
                             <InputGroup className="inputStyle">
                                 <InputGroup.Text>
                                     <FontAwesomeIcon icon={faPencilAlt} size='1x' />
@@ -126,7 +122,7 @@ export default function CreateTripCard(props) {
                                 <InputGroup.Text>
                                     <FontAwesomeIcon icon={faCity} size='1x' />
                                 </InputGroup.Text>
-                                <Form.Control value={destination} onChange={(e) => setDestination(e.target.value)} type="text" ref={bootstrapRef} />
+                                <Form.Control value={destination} onChange={(e) => setDestination(e.target.value)} type="text" placeholder="Indique o destino" />
                             </InputGroup>
                         </Form.Group>
 

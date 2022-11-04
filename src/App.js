@@ -14,12 +14,7 @@ import api from './utils/api';
 
 function App() {
 
-  const [userState, setUserState] = useState({
-    token: "",
-    user: {
-
-    }
-  });
+  const [userState, setUserState] = useState({user: {}});
 
   useEffect(() => {
     document.title = "WHOW TRIP";

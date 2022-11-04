@@ -49,7 +49,7 @@ export default function Navigation(props) {
                             <div style={{ display: 'flex' }}>
                                 {(isHome === true &&
                                     <div className="custom-navlink-list">
-                                        <Nav.Link className="custom-navlink-text mx-3 mb-1" href="/">{Logo}</Nav.Link>
+                                        <Nav.Link className="custom-navlink-text text-light" href="#home"><span className="navbar-content">HOME</span></Nav.Link>
                                         <Nav.Link className="custom-navlink-text text-light" href="#features"><span className="navbar-content">PLANEJAMENTO</span></Nav.Link>
                                         <Nav.Link className="custom-navlink-text text-light" href="#recommendation"><span className="navbar-content">RECOMENDAÇÕES</span></Nav.Link>
                                         <Nav.Link className="custom-navlink-text text-light" href="#contact"><span className="navbar-content">CONTATO</span></Nav.Link>
@@ -79,7 +79,7 @@ export default function Navigation(props) {
                                             <FontAwesomeIcon style={{ color: "white" }} icon={faCaretUp} fixedWidth />
                                         </NavbarDropdown.Close>
                                     </NavbarDropdown.Toggle>
-                                    <NavbarDropdown.CSSTransitionMenu
+                                    <NavbarDropdown.Menu
                                         className="dropdown-menu" timeout={200}
                                     >
                                         <NavbarDropdown.Item className="dropdown-menu-item" onClick={toCreateTripPage}>
@@ -103,7 +103,7 @@ export default function Navigation(props) {
                                             <div className="dropdown-menu-item__spacer" />
                                             <div style={{ color: "red" }} className="dropdown-menu-item__text">Sair</div>
                                         </NavbarDropdown.Item>
-                                    </NavbarDropdown.CSSTransitionMenu>
+                                    </NavbarDropdown.Menu>
                                 </NavbarDropdown>
                             </div>
                         </Nav>
