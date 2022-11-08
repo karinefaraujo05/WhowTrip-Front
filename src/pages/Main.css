@@ -3,7 +3,7 @@
   background-size: cover;
   background-position: center;
   min-height: 500px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Montserrat", sans-serif;
 
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ html body [data-ca3_iconfont="ETmodules"]::before {
 
 .modal-button {
   transition: all 0.5s ease-in-out;
-  font-family: "Assistant", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: white;
   font-size: 1.2em;
   border: none;

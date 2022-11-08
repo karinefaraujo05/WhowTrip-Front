@@ -1,12 +1,8 @@
-/* ============================= */
-/* =       NAVBAR STYLING      = */
-/* ============================= */
-
 .custom-nav {
-  background: #202530;
+  background: rgb(41, 125, 158);
   padding-top: 1.5em !important;
   padding-bottom: 1.5em !important;
-  font-family: "Assistant", sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .container-mobile {
@@ -91,7 +87,7 @@
   color: white;
 }
 
-.dropdown-menu {
+.menu {
   display: flex;
   flex-direction: column;
   top: 28px;
@@ -102,25 +98,25 @@
   box-shadow: 0px 0px 5px #c3c5c7;
 }
 
-.dropdown-menu-enter {
+.menu-enter {
   opacity: 0;
 }
 
-.dropdown-menu-enter-active {
+.menu-enter-active {
   opacity: 1;
   transition: 0.2s ease-in;
 }
 
-.dropdown-menu-exit {
+.menu-exit {
   opacity: 1;
 }
 
-.dropdown-menu-exit-active {
+.menu-exit-active {
   opacity: 0;
   transition: 0.2s ease-in;
 }
 
-.dropdown-menu-item {
+.menu-item {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -130,15 +126,15 @@
   color: #333537;
 }
 
-.dropdown-menu-item:hover {
+.menu-item:hover {
   background-color: #f3f5f7;
 }
 
-.dropdown-menu-item__spacer {
+.menu-item__spacer {
   width: 6px;
 }
 
-.dropdown-menu-item__text {
+.menu-item__text {
   padding: 0px 2px;
 }
 
@@ -167,4 +163,4 @@
     align-items: center;
     justify-content: flex-end;
   }
-}
+}  

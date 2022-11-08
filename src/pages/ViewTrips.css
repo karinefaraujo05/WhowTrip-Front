@@ -13,7 +13,7 @@
 }
 
 .viewTripsHeader {
-    color:#dfd9d9;
+    color:black;
     margin-left: 10px;
     margin-right: 20px;
 }
@@ -38,7 +38,7 @@
 }
 
 .viewTripPageCreateBtn {
-    background-color: rgb(230, 184, 34) !important;
-    color:#4d5e85 !important;
+    background-color: yellow !important;
+    color: black !important;
     font-weight: bolder !important;
 }

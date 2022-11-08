@@ -35,7 +35,7 @@ export default function Plancard(props) {
             <div className="plan-card">
                 <div className="plan-card-info-wrapper">
                     <h3>{props.planData.name}</h3>
-                    <Moment format="MMM Do YYYY" date = {props.planData.date} />
+                    <Moment format="DD MMM YYYY" date = {props.planData.date} />
                 </div>
                 <div className="plan-card-buttons-wrapper">
                     <button

@@ -104,15 +104,16 @@ export default function Plantab(props) {
                         className="add-plan-button"
                         onClick={toggleIsAddingPlan}
                     >
-                        Adicione um local
+                        Adicione um plano
                     </button>
                     <div className="plan-cards-wrapper">
                         <>
                         {isAddingPlan ? (
                             <form className="plan-card" onSubmit={handlePlanCreate}>
+
                                 <input
                                     type="text"
-                                    placeholder="Qual o destino?"
+                                    placeholder="Adicione aqui o seu plano:"
                                     value={newPlanName}
                                     onChange={(e) => {
                                         e.preventDefault();
@@ -131,7 +132,6 @@ export default function Plantab(props) {
                                         required={true}
                                     />
                                 </div>
-                                <input type="submit" value="Adicione uma rota! (Ex: 'Marco Zero, Recife')" className="submit-add-plan" />
                             </form>
                         ) : ( null )}
                         {props.planData.map((plan, i) => 

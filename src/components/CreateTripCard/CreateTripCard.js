@@ -29,7 +29,6 @@ export default function CreateTripCard(props) {
     const [endDate, setEndDate] = useState(null);
     const [destination, setDestination] = useState("");
     const [tripName, setTripName] = useState("");
-    // const [tripId, setTripId] = useState(null);
     const [focusedInput, setFocusedInput] = useState(null);
     const [calendarStack, setCalendarStack] = useState("horizontal");
 
@@ -45,14 +44,6 @@ export default function CreateTripCard(props) {
         setStartDate(startDate);
         setEndDate(endDate);
     };
-
-    const { ref: bootstrapRef } = usePlacesWidget({
-        apiKey: process.env.REACT_APP_GOOGLE_API,
-        language: "pt",
-        onPlaceSelected: (place) => {
-            setDestination(place.formatted_address);
-        },
-    });
 
     const handleCreateTripFormSubmit = async (e) => {
         e.preventDefault();
@@ -101,7 +92,7 @@ export default function CreateTripCard(props) {
             <div className="createTripBackground">
                 <div className="create-trip-main">
                     <h1 className="createTripHeader mb-5">
-                        Crie a sua viagem!
+                        Crie uma viagem!
                     </h1>
 
                     <Form onSubmit={handleCreateTripFormSubmit}>
@@ -148,7 +139,7 @@ export default function CreateTripCard(props) {
 
                         <Form.Group className="d-flex justify-content-evenly">
                             <Button type="submit" value="Crie a viagem" className="createTripBtn">
-                                <FontAwesomeIcon className="createTripBtnIcon" icon={faSuitcase} size='1x' />Criar!
+                                <FontAwesomeIcon className="createTripBtnIcon" icon={faSuitcase} size='1x' />Criar
                             </Button>
                             <Link to="/">
                                 <Button className="createTripCancelBtn">

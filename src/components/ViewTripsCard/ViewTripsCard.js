@@ -19,9 +19,9 @@ export default function ViewTripsCard({ user, userTripData, handleDelete, toThat
 
             {(user === userTripData.UserId) ? 
             (<div style={{alignSelf: "center", marginBottom: "10px"}}>
-                <span style={{color:"#4d5e85", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faCrown} size='1x' /> Organizador </span>
+                <span style={{color:"gray", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faCrown} size='1x' /> Organizador </span>
             </div>) :
-            (<div style={{alignSelf: "center", marginBottom: "10px"}}><span style={{color: "#4d5e85", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faIdBadge} size='1x' /> Participantes</span></div>)
+            (<div style={{alignSelf: "center", marginBottom: "10px"}}><span style={{color: "gray", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faIdBadge} size='1x' /> Participante </span></div>)
             }
 
             <div className="cityName">
@@ -35,7 +35,7 @@ export default function ViewTripsCard({ user, userTripData, handleDelete, toThat
                 <span className="material-icons durationIcon me-2">
                     date_range
                 </span>
-                <p className="pTag"><Moment format="MMM Do YYYY" date={userTripData.departure} />  -  <Moment format="MMM Do YYYY" date={userTripData.return} /></p>
+                <p className="pTag"><Moment format="DD MMM YYYY" date={userTripData.departure} />  -  <Moment format="DD MMM YYYY" date={userTripData.return} /></p>
             </div>
 
             <div className="numberOfTraveler">

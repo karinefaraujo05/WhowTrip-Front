@@ -17,7 +17,7 @@ export default function Message({ message, user, handleDelete }) {
                 <div className="message-metadata">
                     <p>
                         {message.User.username} -
-                        <Moment className="comment-subject-date" format="MMM Do YYYY" date = {message.createdAt} />
+                        <Moment className="comment-subject-date" format="DD MMM YYYY" date = {message.createdAt} />
                     </p>
                 </div>
             </div>

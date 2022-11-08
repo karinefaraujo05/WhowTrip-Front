@@ -1,5 +1,5 @@
 .trips-main {
-  background: #202530;
+  background: skyblue;
   padding-top: 4rem;
   padding-bottom: 4rem;
   height: 100%;
@@ -9,7 +9,7 @@
 .trip-nav {
   display: flex;
   width: 100%;
-  background: #202530;
+  background: skyblue;
 }
 
 .trip-nav-item {
@@ -20,11 +20,11 @@
   color: inherit;
   border: none;
   border-radius: 10px 10px 0 0;
-  background: #aeaeae;
+  background: rgb(232, 232, 232);
 }
 
 .trip-nav-active {
-  background: #e8e8e8;
+  background: whitesmoke;
 }
 
 .trip-nav-item:hover {
@@ -38,7 +38,7 @@
   flex-direction: column;
 
   width: 100%;
-  background: #e8e8e8;
+  background: whitesmoke;
   border-radius: 0 0 10px 10px;
   padding: 3em;
 }

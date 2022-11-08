@@ -216,7 +216,7 @@ export default function Lounge(props) {
                                 <h6 className="comment-subject-content">{props.messages[targetCommentIndex].content}</h6>
                                 <p className="comment-subject-poster">
                                     {props.messages[targetCommentIndex].User.username} - 
-                                    <Moment className="comment-subject-date" format="MMM Do YYYY" date = {props.messages[targetCommentIndex].createdAt} />
+                                    <Moment className="comment-subject-date" format="DD MMM YYYY" date = {props.messages[targetCommentIndex].createdAt} />
                                 </p>
                             </div>
                             <p>Respostas:</p>

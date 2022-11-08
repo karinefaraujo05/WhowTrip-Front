@@ -24,16 +24,16 @@ export default function Tripoverview({ trip, plans }) {
             
             <div className="date-wrapper">
                 <FontAwesomeIcon className="mx-3" icon={faPlaneDeparture} size='1x' />
-                <Moment className="date-item" format="MMM Do YYYY" date = {trip.departure} />
+                <Moment className="date-item" format="DD MMM YYYY" date = {trip.departure} />
                 <FontAwesomeIcon className="mx-3" icon={faArrowRight} size='1x' />
-                <Moment className="date-item" format="MMM Do YYYY" date = {trip.return} />
+                <Moment className="date-item" format="DD MMM YYYY" date = {trip.return} />
                 <FontAwesomeIcon className="mx-3" icon={faPlaneArrival} size='1x' />
             </div>
 
             <Row className="summary-wrapper">
                 <Col sm={12} lg={6} className="summary-colum-left">
                     <div className="items-wrapper middle">
-                        <h4> Os viajantes:</h4>
+                        <h4> Viajantes:</h4>
                         <div className="overview-item trip-owner">
                             <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' />
                             {trip.User.username}
@@ -50,7 +50,7 @@ export default function Tripoverview({ trip, plans }) {
                 </Col>
                 <Col sm={12} lg={6} className="summary-colum-right">
                     <div className="items-wrapper middle">
-                        <h4>Os itinerários:</h4>
+                        <h4>Planejamento:</h4>
                         {plans.map((plan, index) => {
                             return (
                                 <div className="overview-item" key={index}>

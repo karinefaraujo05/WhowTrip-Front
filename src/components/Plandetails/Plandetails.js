@@ -86,7 +86,7 @@ export default function Plandetails(props) {
                         }}
                         className="plan-title-input"
                     />
-                    <Moment className="plan-item-date" format="MMM Do YYYY" date = {props.planData.date} />
+                    <Moment className="plan-item-date" format="DD MMM YYYY" date = {props.planData.date} />
                     <textarea
                         type="text"
                         rows="3"
@@ -129,7 +129,7 @@ export default function Plandetails(props) {
             ) : (
                 <>
                 <h3 className="plan-item-center">{props.planData.name}</h3>
-                <Moment className="plan-item-date" format="MMM Do YYYY" date = {props.planData.date} />
+                <Moment className="plan-item-date" format="DD MMM YYYY" date = {props.planData.date} />
                 <p className="plan-item-center">{props.planData.content}</p>
                 <p className="plan-item-center"> Custo Aproximado: R${props.planData.budget}</p>
                 <div className="plan-item-center opted-in-travellers">

@@ -27,10 +27,10 @@ export default function AboutUs() {
                         </div>
                         <ul className="social">
                             <li>
-                                <a href="https://web.whatsapp.com" target="_blank" aria-hidden="true"><FontAwesomeIcon icon={faWhatsapp} size='1x' /></a>
+                                <a href="https://web.whatsapp.com" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faWhatsapp} size='1x' /></a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/faculdadefainor/" target="_blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
+                                <a href="https://www.instagram.com/faculdadefainor/" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
                             </li>
                         </ul>
                     </div>
@@ -47,12 +47,12 @@ export default function AboutUs() {
                         </div>
                         <ul className="social">
                             <li>
-                                <a href="https://www.convertte.com.br/gerador-link-whatsapp/?" target="_blank" aria-hidden="true">
+                                <a href="https://www.convertte.com.br/gerador-link-whatsapp/?" target="blank" aria-hidden="true">
                                     <FontAwesomeIcon icon={faWhatsapp} size='1x' />
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/faculdadefainor/" target="_blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
+                                <a href="https://www.instagram.com/faculdadefainor/" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
                             </li>
                         </ul>
                     </div>
@@ -69,10 +69,10 @@ export default function AboutUs() {
                         </div>
                         <ul className="social">
                             <li>
-                                <a href="https://www.convertte.com.br/gerador-link-whatsapp/?" target="_blank" aria-hidden="true"><FontAwesomeIcon icon={faWhatsapp} size='1x' /></a>
+                                <a href="https://www.convertte.com.br/gerador-link-whatsapp/?" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faWhatsapp} size='1x' /></a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/faculdadefainor/" target="_blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
+                                <a href="https://www.instagram.com/faculdadefainor/" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
                             </li>
                         </ul>
                     </div>
@@ -89,10 +89,10 @@ export default function AboutUs() {
                         </div>
                         <ul className="social">
                             <li>
-                                <a href="https://www.convertte.com.br/gerador-link-whatsapp/?" target="_blank" aria-hidden="true"><FontAwesomeIcon icon={faWhatsapp} size='1x' /></a>
+                                <a href="https://www.convertte.com.br/gerador-link-whatsapp/?" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faWhatsapp} size='1x' /></a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/faculdadefainor/" target="_blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
+                                <a href="https://www.instagram.com/faculdadefainor/" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
                             </li>
                         </ul>
                     </div>

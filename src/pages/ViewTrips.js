@@ -49,12 +49,12 @@ export default function ViewTrips(props) {
             <div className="viewTripsHeaderBox">
                 <img className="viewTripsBackgroundImg" src={viewTripImg} />
                 <h1 className="viewTripsHeader"> Suas Viagens </h1>
-                <img className="earthImg" src={earth} />
             </div>
 
             <div className="viewTripsCardContainer">
                 {(userTripData.length === 0) ?
-                    (<div style={{ color: "white" }}><h3>Você ainda não programou nenhuma viagem! </h3></div>)
+                    (<div style={{ color: "white" }}>
+                        <h3>Você ainda não programou nenhuma viagem! </h3></div>)
                     :
                     <>
                         {

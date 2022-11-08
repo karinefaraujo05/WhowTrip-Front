@@ -17,7 +17,7 @@
   height: 80px;
 }
 
-.recommendation-header {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,11 +95,11 @@
   cursor: pointer;
 }
 
-.recCityName {
+.recPlace {
   text-shadow: 2px 2px black !important;
 }
 
-.recTourist {
+.recTown {
   text-shadow: 2px 2px black !important;
 }
 
@@ -159,11 +159,11 @@
     height: 80px;
   }
 
-  .recommendation-header-main {
+  .header-main {
     display: none;
   }
 
-  .recommendation-header-mobile {
+  .header-mobile {
     display: block;
   }
 
