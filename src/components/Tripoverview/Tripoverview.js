@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'react-moment';
 
-// BOOTSTRAP IMPORTS
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-// FONT AWESOME IMPORTS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faPlaneDeparture, faPlaneArrival, faCrown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
-// LOCAL IMPORTS
 import './Tripoverview.css';
 
 export default function Tripoverview({ trip, plans }) {
@@ -33,7 +30,7 @@ export default function Tripoverview({ trip, plans }) {
             <Row className="summary-wrapper">
                 <Col sm={12} lg={6} className="summary-colum-left">
                     <div className="items-wrapper middle">
-                        <h4> Viajantes:</h4>
+                        <h4> Viajantes: </h4>
                         <div className="overview-item trip-owner">
                             <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' />
                             {trip.User.username}
@@ -50,7 +47,7 @@ export default function Tripoverview({ trip, plans }) {
                 </Col>
                 <Col sm={12} lg={6} className="summary-colum-right">
                     <div className="items-wrapper middle">
-                        <h4>Planejamento:</h4>
+                        <h4> Planejamento: </h4>
                         {plans.map((plan, index) => {
                             return (
                                 <div className="overview-item" key={index}>
