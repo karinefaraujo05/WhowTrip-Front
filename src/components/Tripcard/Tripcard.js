@@ -18,29 +18,24 @@ export default function Tripcard({ user, token }) {
 
     // INITIAL CALLS TO API TO GET TRIPDATA. BUDGET DATA
     // (budget data api call located in budget data section)
-    // -------------------------------------------------
     const [tripData, setTripData] = useState(null);
 
     useEffect(() => {
         // ON LOAD - TRIP DATA
         api.getSingleTrip(id).then(res => {setTripData(res.data)});
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [id])
 
 
     // SET REFERENCE, STATES FOR TAB SWITCHING
-    // ---------------------------------------
+
     const [activeTab, setActiveTab] = useState('Overview')
     const overviewRef=createRef();
     const plansRef=createRef();
     const budgetRef=createRef();
     const loungeRef=createRef();
 
-
-
-
     // STATES, EFFECTS, METHODS FOR PLANNING TAB
-    // ----------------------------------------------------------
+
     const [planData, setPlanData] = useState(null);
 
     useEffect(() => {
@@ -169,14 +164,8 @@ export default function Tripcard({ user, token }) {
         }
     }
 
-    // ----------------------------------------------------------
-    
-
-
-
-
     // STATES, EFFECTS, METHODS FOR BUDGET TAB
-    // ----------------------------------------------------------
+
     const [budgetData, setBudgetData] = useState(null);
 
     useEffect(() => {
@@ -188,8 +177,7 @@ export default function Tripcard({ user, token }) {
                 }
             });
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user])
+    }, [id, user])
 
     // HANDLE CHANGING BUDGET SIZE
     const changeBudgetTotal = async (budgetId, newTotal) => {
@@ -314,7 +302,7 @@ export default function Tripcard({ user, token }) {
         };
     };
 
-    // ----------------------------------------------------------
+
 
 
     
@@ -322,7 +310,7 @@ export default function Tripcard({ user, token }) {
    
 
     // STATES, EFFECTS, METHODS FOR TRAVEL LOUNGE TAB
-    // ----------------------------------------------------------
+
     const [messageData, setMessageData] = useState(null);
     const [travellerData, setTravellerData] = useState(null);
 
@@ -394,12 +382,11 @@ export default function Tripcard({ user, token }) {
         };
     };
 
-    // ----------------------------------------------------------
+
 
 
  
     // RENDER APPROPRIATE CONTENT
-    // --------------------------
 
     // HANDLE TAB SWITCHING
     const handleTabSwitch = (e) => {

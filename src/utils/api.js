@@ -104,7 +104,7 @@ const api = {
     },
 
     // MISCELLANEOUS ROUTES
-    // ---------------------
+--
     addUserToTrip: function(body, headers) {
         return axios.post(`${URL_PREFIX}/api/trips/savedtrips`, body, headers)
     },

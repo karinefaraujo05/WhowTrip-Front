@@ -17,7 +17,6 @@ import Plandetails from '../Plandetails/Plandetails.js';
 export default function Plantab(props) {
     const { id } = useParams();
     // STATE VARIABLES
-    // -----------------
     const [viewAllPlans, setViewAllPlans] = useState(true);
     const [isAddingPlan, setIsAddingPlan] = useState(false);
     const [targetPlanIndex, setTargetPlanIndex] = useState(0);
@@ -27,7 +26,7 @@ export default function Plantab(props) {
 
 
     // HELPER METHODS
-    // --------------------
+-
     const updatePlanTarget = (planId) => {
         // find index of planData in which planId is found
         for (let i=0; i<props.planData.length; i++) {
@@ -44,7 +43,6 @@ export default function Plantab(props) {
     }
 
     // DATA HANDLING METHODS
-    // ---------------------
     const handlePlanCreate = async (e) => {
         e.preventDefault();
 
@@ -71,14 +69,10 @@ export default function Plantab(props) {
     const handlePlanDelete = async (planId) => {
         const deletePlan = props.handlePlanDelete(planId);
 
-        if (deletePlan) {
-            setViewAllPlans(true);
-        };
+        if (deletePlan) { setViewAllPlans(true);};
     };
 
-    const handlePlanUpdate = async (planId, body) => {
-        props.handlePlanUpdate(planId, body);
-    };
+    const handlePlanUpdate = async (planId, body) => { props.handlePlanUpdate(planId, body); };
 
     const handleCommentOnPlan = async (planId, message) => {
         const body = {
@@ -100,21 +94,13 @@ export default function Plantab(props) {
             <>
             {viewAllPlans ? (
                 <div className="plan-wrapper-super">
-                    <button
-                        className="add-plan-button"
-                        onClick={toggleIsAddingPlan}
-                    >
-                        Adicione um plano
-                    </button>
+                    <button className="add-plan-button" onClick={toggleIsAddingPlan} > Adicione um plano </button>
                     <div className="plan-cards-wrapper">
                         <>
                         {isAddingPlan ? (
                             <form className="plan-card" onSubmit={handlePlanCreate}>
 
-                                <input
-                                    type="text"
-                                    placeholder="Adicione aqui o seu plano:"
-                                    value={newPlanName}
+                                <input type="text" placeholder="Adicione aqui o seu plano:" value={newPlanName}
                                     onChange={(e) => {
                                         e.preventDefault();
                                         setNewPlanName(e.target.value);
@@ -132,6 +118,7 @@ export default function Plantab(props) {
                                         required={true}
                                     />
                                 </div>
+                                <input type="submit" value="Adicione!" className="submit-add-plan" />
                             </form>
                         ) : ( null )}
                         {props.planData.map((plan, i) => 

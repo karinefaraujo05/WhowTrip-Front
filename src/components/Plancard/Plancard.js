@@ -8,7 +8,6 @@ import './Plancard.css';
 export default function Plancard(props) {
 
     // HELPER FUNCTIONS
-    // -----------------
     const isUserPlanOwner = () => {
         // checks if current user is creator of a plan
         if (props.planData.User.id === props.user.id) {

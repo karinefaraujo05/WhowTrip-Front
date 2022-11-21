@@ -5,8 +5,7 @@ import Moment from 'react-moment';
 import './Loungemessage.css';
 
 export default function Message({ message, user, handleDelete }) {
-    // STATE VARIABLES
-    // ------------------
+    // STATE VARIABLES-
     return (
         <div
             className="message-wrapper"

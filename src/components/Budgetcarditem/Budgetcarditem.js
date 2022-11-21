@@ -5,7 +5,7 @@ import './Budgetcarditem.css';
 
 export default function Budgetcarditem(props) {
     // STATE VARIABLES
-    // --------------------
+-
     const [item, setItem] = useState(props.description);
     const [amount, setAmount] = useState(props.price);
 

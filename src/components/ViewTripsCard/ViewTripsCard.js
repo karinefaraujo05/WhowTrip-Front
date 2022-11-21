@@ -19,46 +19,42 @@ export default function ViewTripsCard({ user, userTripData, handleDelete, toThat
 
             {(user === userTripData.UserId) ? 
             (<div style={{alignSelf: "center", marginBottom: "10px"}}>
-                <span style={{color:"gray", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faCrown} size='1x' /> Organizador </span>
+                <span style={{color:"gray", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}>
+                    <FontAwesomeIcon className="me-1" icon={faCrown} size='1x' /> Organizador </span>
             </div>) :
-            (<div style={{alignSelf: "center", marginBottom: "10px"}}><span style={{color: "gray", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}><FontAwesomeIcon className="me-1" icon={faIdBadge} size='1x' /> Participante </span></div>)
+            (<div style={{alignSelf: "center", marginBottom: "10px"}}>
+                <span style={{color: "gray", padding:"5px", borderRadius: "5px", fontWeight:"bolder"}}>
+                    <FontAwesomeIcon className="me-1" icon={faIdBadge} size='1x' /> Participante </span>
+            </div>)
             }
 
             <div className="cityName">
-                <span className="material-icons locationIcon me-2">
-                    location_city
-                </span>
-                <p className="pTag">{userTripData.destination}</p>
+                <span className="material-icons locationIcon me-2"> location_city </span>
+              <p className="pTag">{userTripData.destination}</p>
             </div>
 
             <div className="tripDuration">
-                <span className="material-icons durationIcon me-2">
-                    date_range
-                </span>
-                <p className="pTag"><Moment format="DD MMM YYYY" date={userTripData.departure} />  -  <Moment format="DD MMM YYYY" date={userTripData.return} /></p>
+                <span className="material-icons durationIcon me-2"> date_range </span>
+              <p className="pTag">
+                <Moment format="DD MMM YYYY" date={userTripData.departure} />  -  <Moment format="DD MMM YYYY" date={userTripData.return} /> </p>
             </div>
 
             <div className="numberOfTraveler">
-                <span className="material-icons groupIcon me-2">
-                    group
-                </span>
-                <p className="pTag">{userTripData.SavedUser.length + 1}</p>
+                <span className="material-icons groupIcon me-2"> group </span>
+              <p className="pTag">{userTripData.SavedUser.length + 1}</p>
             </div>
 
             <div className="viewDeleteBtn">
                 <button onClick={(e) => {
                     e.preventDefault()
                     toThatTripHandler(userTripData.id)
-                }} className="btn tripViewBtn mb-2">
-                    Veja esta viagem
-                </button>
+                }} className="btn tripViewBtn mb-2"> Veja esta viagem </button>
                 {(user === userTripData.UserId) ?
                 (<button onClick={(e) => {
                     e.preventDefault()
                     handleDelete(userTripData.id)
-                }} className="btn tripDeleteBtn" >
-                    Delete esta viagem
-                </button>) : (<></>)}
+                }} className="btn tripDeleteBtn"> Delete esta viagem </button>
+                ) : (<></>)}
             </div>
         </div>
         ) : ( null )}

@@ -1,32 +1,25 @@
 import React, { useState } from 'react';
 
-// BOOTSTRAP IMPORTS
 import Container from 'react-bootstrap/Container';
 
-// FONT AWESOME IMPORTS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
-// LOCAL IMPORTS
 import './Budget.css';
 import Budgetbar from '../Budgetbar/Budgetbar.js';
 import Budgetcard from '../Budgetcard/Budgetcard.js';
 
 export default function Budget(props) {
-    // STATE VARIABLES
-    // ---------------
+    
+    // Variáveis de estado
     const [isEditingBudget, setIsEditingBudget] = useState(false);
     const [budgetTotal, setBudgetTotal] = useState(props.budgetData ? props.budgetData.total : 0);
     const [addCategory, setAddCategory] = useState(false);
     const [categoryDescription, setCategoryDescription] = useState('');
 
-    // HELPER FUNCTIONS
-    // -------------------
+    // Função para somatória de gastos
     const findBudgetTotal = (data) => {
-        // simple sum function
-        if (!data) {
-            return 0
-        }
+        if (!data) { return 0 }
 
         let budgetTotal = 0;
         for (let i=0; i<data.BudgetCategories.length; i++) {
@@ -37,8 +30,7 @@ export default function Budget(props) {
         return budgetTotal;
     };
 
-    // VISUAL TOGGLERS
-    // -----------------
+    // Botões visuais
     const toggleBudgetEditor = (e) => {
         e.preventDefault();
         setIsEditingBudget(!isEditingBudget);
@@ -48,7 +40,6 @@ export default function Budget(props) {
         e.preventDefault();
         setAddCategory(!addCategory);
     };
-
 
     // BUDGET CATEGORY METHODS
     //-------------------------
@@ -99,9 +90,7 @@ export default function Budget(props) {
                     ) : (
                         <h3 className="budget-overview-text">{budgetTotal}</h3>
                     )}
-                    <button className="budget-overview-editor" onClick={toggleBudgetEditor}>
-                        📝
-                    </button>
+                    <button className="budget-overview-editor" onClick={toggleBudgetEditor}> 📝 </button>
                 </div>
                 <Budgetbar budgetTotal={budgetTotal} budgetDetails={props.budgetData}/>
             </div>
@@ -115,9 +104,7 @@ export default function Budget(props) {
                 <form style={{display: (addCategory === true ? 'block' : 'none')}} onSubmit={handleAddBudgetCategory}>
                     <div className="budgetcard">
                         <div className="header-wrapper mb-2">
-                            <input
-                                className="budget-input-title"
-                                placeholder="Descrição"
+                            <input className="budget-input-title" placeholder="Descrição"
                                 value={categoryDescription}
                                 onChange={(e) => {
                                     e.preventDefault();
@@ -126,9 +113,7 @@ export default function Budget(props) {
                             />
                             <input type="submit" style={{display: 'none'}} />
                             <div style={{display: 'flex', alignSelf: 'flex-start'}}>
-                                <button style={{border: 'none', background: 'none'}} onClick={toggleBudgetCategoryCreator}>
-                                    ✖️
-                                </button>
+                                <button style={{border: 'none', background: 'none'}} onClick={toggleBudgetCategoryCreator}> ✖️ </button>
                             </div>
                         </div>
                     </div>
