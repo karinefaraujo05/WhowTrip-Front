@@ -35,9 +35,6 @@ const SignupModal = ({ signupModalState, signupModalClose }) => {
 
     return (
         <Modal show={signupModalState} onHide={signupModalClose}>
-            <Modal.Header className="signupModalHeader">
-                <Modal.Title><h2><strong> Signup </strong></h2></Modal.Title>
-            </Modal.Header>
             <Modal.Body className="signupModalBody">
                 <Form onSubmit={handleSignupFormSubmit}>
                     <Form.Group className="mb-3">

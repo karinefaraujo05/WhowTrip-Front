@@ -43,12 +43,13 @@ export default function Main(props) {
     const handleLoginFormSubmit = e => {
         e.preventDefault();
         api.login(loginFormState).then(res => {
-            localStorage.setItem('userId', res.data.user.id);
+            console.log(res);
+            localStorage.setItem('userId', res.data.id);
             props.setUserState({
                 ...props.userState,
                 user: {
-                    email: res.data.user.email,
-                    username: res.data.user.username,
+                    email: res.data.email,
+                    username: res.data.username,
                 }
             })
         }).catch(err => {

@@ -14,21 +14,21 @@ export default function Tripcard({ user, token }) {
     const { id } = useParams();
     const [tripData, setTripData] = useState(null);
 
-    useEffect(() => {
-        api.getSingleTrip(id).then(res => {setTripData(res.data)});
-    }, [id])
+    // useEffect(() => {
+    //     api.getSingleTrip(id).then(res => {setTripData(res.data)});
+    // }, [id])
 
     const [activeTab, setActiveTab] = useState(`Overview`)
-    const overviewRef=createRef();
-    const plansRef=createRef();
-    const budgetRef=createRef();
-    const loungeRef=createRef();
+    // const overviewRef=createRef();
+    // const plansRef=createRef();
+    // const budgetRef=createRef();
+    // const loungeRef=createRef();
 
     const [planData, setPlanData] = useState(null);
 
-    useEffect(() => {
-        setPlanData(tripData ? tripData.Plans : null)
-    }, [tripData])
+    // useEffect(() => {
+    //     setPlanData(tripData ? tripData.Plans : null)
+    // }, [tripData])
 
     const planAddHandler = async (body) => {
         const res = await api.createPlan(body, {
@@ -149,7 +149,7 @@ export default function Tripcard({ user, token }) {
 
     const [budgetData, setBudgetData] = useState(null);
 
-    useEffect(() => {
+   /* useEffect(() => {
         if (user.id) {
             api.getSingleBudget(id, user.id).then(res => {
                 if (res.data) {
@@ -157,7 +157,7 @@ export default function Tripcard({ user, token }) {
                 }
             });
         }
-    }, [id, user])
+    }, [id, user])*/
 
     // HANDLE CHANGING BUDGET SIZE
     const changeBudgetTotal = async (budgetId, newTotal) => {
@@ -277,11 +277,11 @@ export default function Tripcard({ user, token }) {
     const [messageData, setMessageData] = useState(null);
     const [travellerData, setTravellerData] = useState(null);
 
-    useEffect(() => {
-        // atualizar plano
-        setMessageData(tripData ? tripData.Comments : null);
-        setTravellerData(tripData ? tripData.SavedUser : null);
-    }, [tripData])
+    // useEffect(() => {
+    //     // atualizar plano
+    //     setMessageData(tripData ? tripData.Comments : null);
+    //     setTravellerData(tripData ? tripData.SavedUser : null);
+    // }, [tripData])
 
     const userAddHandler = async (tripId, userId) => {
         const res = await api.addUserToTrip({
@@ -352,10 +352,10 @@ export default function Tripcard({ user, token }) {
         e.preventDefault();
         
         // set all classlists to just tab
-        overviewRef.current.className = "trip-nav-item";
-        plansRef.current.className = "trip-nav-item";
-        budgetRef.current.className = "trip-nav-item";
-        loungeRef.current.className = "trip-nav-item";
+        // overviewRef.current.className = "trip-nav-item";
+        // plansRef.current.className = "trip-nav-item";
+        // budgetRef.current.className = "trip-nav-item";
+        // loungeRef.current.className = "trip-nav-item";
 
         // set target to active
         e.target.classList.add(`trip-nav-active`);
@@ -436,10 +436,10 @@ export default function Tripcard({ user, token }) {
         <Container fluid className="trips-main">
             <Container>
                 <div className="trip-nav">
-                    <button className="trip-nav-item trip-nav-active" id="Overview" onClick={handleTabSwitch} ref={overviewRef}>Resumo</button>
+                    {/* <button className="trip-nav-item trip-nav-active" id="Overview" onClick={handleTabSwitch} ref={overviewRef}>Resumo</button>
                     <button className="trip-nav-item" id="Plans" onClick={handleTabSwitch} ref={plansRef}>Itinerários</button>
                     <button className="trip-nav-item" id="Budget" onClick={handleTabSwitch} ref={budgetRef}>Gastos</button>
-                    <button className="trip-nav-item" id="Lounge" onClick={handleTabSwitch} ref={loungeRef}>Chat</button>
+                    <button className="trip-nav-item" id="Lounge" onClick={handleTabSwitch} ref={loungeRef}>Chat</button> */}
                 </div>
                 <div className="trip-content">
                     {renderTab()}

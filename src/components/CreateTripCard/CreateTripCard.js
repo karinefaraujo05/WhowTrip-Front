@@ -50,6 +50,7 @@ export default function CreateTripCard(props) {
         const formattedEndDate = moment.unix(endDate / 1000).format("DD/MM/YYYY");
 
         try {
+           console.log('brasil');
             const res = await api.createTrip({ 
                 name: tripName,
                 destination: destination,
@@ -61,6 +62,7 @@ export default function CreateTripCard(props) {
                     authorization: `Viajante ${props.token}`
                 }
             });
+            
 
             const budgetRes = await api.createBudget({
                 TripId: res.data.id,
@@ -70,7 +72,7 @@ export default function CreateTripCard(props) {
                     authorization: `Viajante ${props.token}`,
                 }
             });
-    
+            
             if (res.status === 200 && budgetRes.status === 200) {
                 window.location.href = `/trips/${res.data.id}`;
             }
