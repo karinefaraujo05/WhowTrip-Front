@@ -30,7 +30,7 @@ export default function Budget(props) {
         return budgetTotal;
     };
 
-    // Botões visuais
+    // Botões
     const toggleBudgetEditor = (e) => {
         e.preventDefault();
         setIsEditingBudget(!isEditingBudget);
@@ -41,8 +41,7 @@ export default function Budget(props) {
         setAddCategory(!addCategory);
     };
 
-    // BUDGET CATEGORY METHODS
-    //-------------------------
+    // Métodos dos gastos - categoria
     const handleAddBudgetCategory = async (e) => {
         e.preventDefault();
         

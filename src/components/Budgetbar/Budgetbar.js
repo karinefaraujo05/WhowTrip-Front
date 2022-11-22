@@ -1,6 +1,4 @@
 import React from 'react';
-
-// LOCAL IMPORTS
 import './Budgetbar.css';
 
 export default function Budgetbar({ budgetTotal, budgetDetails }) {

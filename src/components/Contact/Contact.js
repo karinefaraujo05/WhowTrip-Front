@@ -1,8 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/Logo.svg';
 import { Link } from 'react-router-dom';
-
-// LOCAL IMPORTS
 import './Contact.css';
 
 export default function Contact() {
@@ -14,14 +12,13 @@ export default function Contact() {
             </div>
             <div>
                 <Link className="meet-our-team-button" to="/about">
-                    Conheça nossos guias!
+                    Conheça nossos guias
                 </Link>
             </div>
 
             <div className="contact-us-modal-button">
                 <Link className="meet-our-team-button" to="/contactForm">
                     Entre em contato
-                    
                 </Link>
             </div>
 
@@ -29,7 +26,7 @@ export default function Contact() {
                 <img className="contact-logo mb-2" src={Logo} alt="team logo" />
             </div>
             <div className="contact-copyright">
-                <p> © 2022</p>
+                <p> 2022 </p>
             </div>
         </div>
     )
