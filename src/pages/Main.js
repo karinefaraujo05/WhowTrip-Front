@@ -11,7 +11,6 @@ import SignupModal from '../components/SignupModal/SignupModal';
 import './Main.css';
 
 export default function Main(props) {
-    // Navbar height: (124px)
     const [mainHeight, setMainHeight] = useState(window.innerHeight);
 
     // Definindo altura da navbar
@@ -68,15 +67,12 @@ export default function Main(props) {
         <div>
             <div id="home">
                 <div className="home-main" style={{ height: mainHeight }}>
-                    <h1 className="let-us-plan-for-you text-light">Organize sua nova viagem de <p> maneira espetacular! </p></h1>
-                    <h4 style={{ marginBottom: "60px" }} className="subHeader text-light"> Tenha em mãos seu destino!</h4>
+                    <h1 className="let-us-plan-for-you text-light"> Organize sua nova viagem de <p> maneira espetacular! </p></h1>
+                    <h4 style={{ marginBottom: "60px" }} className="subHeader text-light"> Tenha em mãos seu destino! </h4>
                     {!props.user?.username ? (<div className="mb-3">
                         <button onClick={loginModalShow} className="loginShadow modal-button mx-2" id="loginBtn">
-                            <span className="material-icons md-18">
-                                login
-                            </span><br />
+                            <span className="material-icons md-18"> login </span><br />
                             Login
-
                         </button>
                         <button onClick={signupModalShow} className="signupShadow modal-button mx-2" id="signupBtn">
                             <span className="material-icons">

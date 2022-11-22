@@ -1,7 +1,5 @@
 import React from 'react';
 import Logo from '../../assets/Logo.svg';
-
-// BOOTSTRAP IMPORTS
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -15,12 +13,11 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-
 // LOCAL IMPORTS
 import './Navigation.css';
 
 export default function Navigation(props) {
-    // get whether user is on homepage
+    // saber se o user está na página inicial
     const location = window.location.pathname;
     const isHome = (location === '/');
 
@@ -49,10 +46,10 @@ export default function Navigation(props) {
                             <div style={{ display: 'flex' }}>
                                 {(isHome === true &&
                                     <div className="custom-navlink-list">
-                                        <Nav.Link className="custom-navlink-text text-light" href="#home"><span className="navbar-content">HOME</span></Nav.Link>
-                                        <Nav.Link className="custom-navlink-text text-light" href="#features"><span className="navbar-content">PLANEJAMENTO</span></Nav.Link>
-                                        <Nav.Link className="custom-navlink-text text-light" href="#recommendation"><span className="navbar-content">RECOMENDAÇÕES</span></Nav.Link>
-                                        <Nav.Link className="custom-navlink-text text-light" href="#contact"><span className="navbar-content">CONTATO</span></Nav.Link>
+                                        <Nav.Link className="custom-navlink-text text-light" href="#home"><span className="navbar-content"> HOME </span></Nav.Link>
+                                        <Nav.Link className="custom-navlink-text text-light" href="#features"><span className="navbar-content"> PLANEJAMENTO </span></Nav.Link>
+                                        <Nav.Link className="custom-navlink-text text-light" href="#recommendation"><span className="navbar-content"> RECOMENDAÇÕES </span></Nav.Link>
+                                        <Nav.Link className="custom-navlink-text text-light" href="#contact"><span className="navbar-content"> CONTATO </span></Nav.Link>
                                     </div>
                                 )}
                             </div>

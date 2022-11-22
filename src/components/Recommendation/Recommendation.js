@@ -1,6 +1,4 @@
 import React from 'react';
-
-// LOCAL IMPORTS
 import destination from '../../assets/destination.png';
 import './Recommendation.css';
 
@@ -11,8 +9,8 @@ export default function Recommendation() {
             <img className="destination" src={destination}/>
             </div>
             <div className="header mb-4">
-                <h1 className="header">Nossas recomendações! </h1>
-                <h5> Estes pacotes deixarão as suas férias incríveis!</h5>
+                <h1 className="header"> Nossas recomendações! </h1>
+                <h5> Estes pacotes deixarão as suas férias incríveis! </h5>
             </div>
 
             <div className="col-12 d-flex flex-column">
@@ -26,13 +24,13 @@ export default function Recommendation() {
                     <a href="https://en.parisinfo.com/" target="blank" className="col-12 img-box" rel="noreferrer">
                         <div className="child img2 d-flex flex-row justify-content-center align-items-center">
                             <h3 className="recPlace"> Rio de Janeiro </h3>
-                            <h5 className="recTown">Cristo Redentor, Jardim Botânico</h5>
+                            <h5 className="recTown"> Cristo Redentor, Jardim Botânico </h5>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/nobresturismo/" target="blank" className="col-12 img-box" rel="noreferrer">
                         <div className="child img3 d-flex flex-row justify-content-center align-items-center">
                             <h3 className="recPlace"> Nobres </h3>
-                            <h5 className="recTown">Salto do Tocum, Balneário Dona Máxima</h5>
+                            <h5 className="recTown"> Salto do Tocum, Balneário Dona Máxima </h5>
                         </div>
                     </a>
                     <a href="https://www.instagram.com/portalchapada_/" target="blank" className="col-12 img-box" rel="noreferrer">

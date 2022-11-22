@@ -78,18 +78,18 @@
     transform: scale(0.9);
 }
 
-.createTripCancelBtn {
+.cancel {
     background-color: red !important;
     border-style: hidden !important;
     width: 125px;
     border-radius: 12px !important;
 }
 
-.createTripCancelBtnIcon {
+.cancelIcon {
     margin-right: 5px;
 }
 
-.createTripCancelBtn:hover {
+.cancel:hover {
     transform: scale(0.9);
 }
 

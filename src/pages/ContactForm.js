@@ -46,9 +46,7 @@ export default function ContactForm() {
 
                 <Form.Group className="contactFormFooter">
                     <Button type="submit" value="Enviar" className="cbtn btn-primary">
-                        <span className="material-icons sendIcon">
-                            send
-                        </span>
+                        <span className="material-icons sendIcon"> send </span>
                         <h5> Enviar </h5>
                     </Button>
                 </Form.Group>

@@ -23,7 +23,7 @@ export default function ViewTrips(props) {
     const tripDeleteHandler = async (tripId) => {
         const res = await api.deleteTrip(tripId, {
             headers: {
-                authorization: `Viajante`
+                authorization: 'Viajante'
             }
         });
         if (res.status === 200) {
@@ -36,7 +36,7 @@ export default function ViewTrips(props) {
     };
 
     const toThatTripHandler = (id) => {
-        window.location = `/trips/${id}`
+        window.location = '/trips/${id}'
     }
 
     const toCreateTripHandler = () => {

@@ -36,22 +36,22 @@ const SignupModal = ({ signupModalState, signupModalClose }) => {
     return (
         <Modal show={signupModalState} onHide={signupModalClose}>
             <Modal.Header className="signupModalHeader">
-                <Modal.Title><h2><strong>Signup</strong></h2></Modal.Title>
+                <Modal.Title><h2><strong> Signup </strong></h2></Modal.Title>
             </Modal.Header>
             <Modal.Body className="signupModalBody">
                 <Form onSubmit={handleSignupFormSubmit}>
                     <Form.Group className="mb-3">
-                        <Form.Label><strong>Username</strong></Form.Label>
+                        <Form.Label><strong> Username </strong></Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
                                 <FontAwesomeIcon icon={faUser} size='1x' />
                             </InputGroup.Text>
-                            <Form.Control value={signupFormState.username} onChange={(e) => setSignupFormState({ ...signupFormState, username: e.target.value })} type="text" placeholder="SeuNome" />
+                            <Form.Control value={signupFormState.username} onChange={(e) => setSignupFormState({ ...signupFormState, username: e.target.value })} type="text" placeholder="Seu Nome" />
                         </InputGroup>
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label><strong>Email</strong></Form.Label>
+                        <Form.Label><strong> Email </strong></Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
                                 <FontAwesomeIcon icon={faEnvelope} size='1x' />
@@ -61,7 +61,7 @@ const SignupModal = ({ signupModalState, signupModalClose }) => {
                     </Form.Group>
 
                     <Form.Group className="mb-4">
-                        <Form.Label><strong>Senha</strong></Form.Label>
+                        <Form.Label><strong> Senha </strong></Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
                                 <FontAwesomeIcon icon={faLock} size='1x' />
@@ -71,12 +71,8 @@ const SignupModal = ({ signupModalState, signupModalClose }) => {
                     </Form.Group>
 
                     <Form.Group className="signupModalFooter">
-                        <Button type="submit" value="signup" className="signupModalBtn mx-2" onClick={signupModalClose}>
-                            Entrar
-                        </Button>
-                        <Button className="signupModalCancelBtn mx-2" onClick={signupModalClose}>
-                            Cancel
-                        </Button>
+                        <Button type="submit" value="signup" className="signupModalBtn mx-2" onClick={signupModalClose}> Entrar </Button>
+                        <Button className="signupModalCancelBtn mx-2" onClick={signupModalClose}> Cancel </Button>
                     </Form.Group>
                 </Form>
             </Modal.Body>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect, createRef } from 'react';
 import { useParams } from 'react-router-dom';
-
-// BOOTSTRAP IMPORTS
 import Container from 'react-bootstrap/Container';
 
 // LOCAL IMPORTS
@@ -13,20 +11,12 @@ import Plantab from '../Plans/Plans.js';
 import api from '../../utils/api.js';
 
 export default function Tripcard({ user, token }) {
-    // TRIP ID
     const { id } = useParams();
-
-    // INITIAL CALLS TO API TO GET TRIPDATA. BUDGET DATA
-    // (budget data api call located in budget data section)
     const [tripData, setTripData] = useState(null);
 
     useEffect(() => {
-        // ON LOAD - TRIP DATA
         api.getSingleTrip(id).then(res => {setTripData(res.data)});
     }, [id])
-
-
-    // SET REFERENCE, STATES FOR TAB SWITCHING
 
     const [activeTab, setActiveTab] = useState('Overview')
     const overviewRef=createRef();
@@ -34,41 +24,35 @@ export default function Tripcard({ user, token }) {
     const budgetRef=createRef();
     const loungeRef=createRef();
 
-    // STATES, EFFECTS, METHODS FOR PLANNING TAB
-
     const [planData, setPlanData] = useState(null);
 
     useEffect(() => {
-        // update plan data on every trip data update
         setPlanData(tripData ? tripData.Plans : null)
     }, [tripData])
 
-    // HANDLE CREATING A PLAN
     const planAddHandler = async (body) => {
-        // create new plan
         const res = await api.createPlan(body, {
             headers: {
-                authorization: `Viajante ${token}`
+                authorization: 'Viajante ${token}'
             }
         })
 
-        // on success, retrieve new trip data for re-render
+        // caso tenha sido um sucesso, recupere os novos
         if (res.status === 200) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
             return res.data.id
         } else {
-            alert('Error creating new plan...');
+            alert('Erro ao criar novo plano...');
             return null
         }
     };
 
     // Deletando um itinerário
     const planDeleteHandler = async (planId) => {
-        // delete itinerário
         const res = await api.deletePlan(planId, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
@@ -82,12 +66,11 @@ export default function Tripcard({ user, token }) {
         }
     }
 
-    // HANDLE UPDATING A PLAN
+    // atualizando um plano
     const planUpdateHandler = async (planId, body) => {
-        // update plan
         const res = await api.updatePlan(planId, body, {
             headers: {
-                authorization: `Viajante: ${token}`,
+                authorization: 'Viajante: ${token}',
             }
         });
 
@@ -98,12 +81,12 @@ export default function Tripcard({ user, token }) {
         };
     }
 
-    // HANDLE COMMENTING ON A PLAN
+    // Comentários de plano - tratar
     const planCommentCreateHandler = async (body) => {
-        // create new comment
+
         const res = await api.createComment(body, {
             headers: {
-                authorization: `Viajante ${token}`
+                authorization: 'Viajante ${token}'
             }
         });
 
@@ -111,16 +94,16 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Error commenting on plan...');
+            alert('Erro ao fazer comentário de plano...');
         }
     }
 
-    // HANDLE DELETING A COMMENT
+    // Deletar um comentário
     const planCommentDeleteHandler = async (commentId) => {
-        // delete comment
+
         const res = await api.deleteComment(commentId, {
             headers: {
-                authorization: `Viajante ${token}`
+                authorization: 'Viajante ${token}'
             }
         });
 
@@ -128,13 +111,13 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data)
         } else {
-            alert('Error deleting comment...')
+            alert('Erro ao deletar comentário...')
         }
     }
 
-    // OPT INTO A PLAN
+    // Adicionar usuário a um plano
     const optInHandler = async (planId) => {
-        // opt into plan
+
         const res = await api.addUserToPlan({
             UserId: user.id,
             PlanId: planId,
@@ -144,13 +127,13 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Error joining plan...');
+            alert('Erro ao adicionar no plano...');
         }
     }
 
-    // OPT OUT OF PLAN
+    // Remover do plano
     const optOutHandler = async (planId) => {
-        // opt out of plan
+        
         const res = await api.removeUserFromPlan({
             UserId: user.id,
             PlanId: planId,
@@ -160,16 +143,13 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Error opting out of plan...');
+            alert('Erro ao remover do plano...');
         }
     }
-
-    // STATES, EFFECTS, METHODS FOR BUDGET TAB
 
     const [budgetData, setBudgetData] = useState(null);
 
     useEffect(() => {
-        // ON LOAD WITH USER - BUDGET DATA
         if (user.id) {
             api.getSingleBudget(id, user.id).then(res => {
                 if (res.data) {
@@ -181,32 +161,29 @@ export default function Tripcard({ user, token }) {
 
     // HANDLE CHANGING BUDGET SIZE
     const changeBudgetTotal = async (budgetId, newTotal) => {
-        // axios put request
+
         const res = await api.updateBudget(budgetId, {
             total: newTotal
         }, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
         if (res.status === 200) {
-            // set on success
             const budgetRes = await api.getSingleBudget(id, user.id);
             setBudgetData(budgetRes.data[0]);
         } else {
-            alert('Error connecting to server... please try again later.')
+            alert('Erro ao conectar servidor...')
         }
     };
 
-    // ----- BUDGET CATEGORIES -----
+    // ----- BUDGET CATEGORIES
 
-    // HANDLE CREATING BUDGET CATEGORY
     const budgetCategoryCreateHandler = async (body) => {
-        // create new category
         const res = await api.createBudgetCategory(body, {
             headers: {
-                authorization: `Viajante ${token}`
+                authorization: 'Viajante ${token}'
             }
         });
 
@@ -215,16 +192,15 @@ export default function Tripcard({ user, token }) {
             setBudgetData(newBudgetData.data[0]);
             return true
         } else {
-            alert('Error creating budget category');
+            alert('Erro ao criar categoria de gastos');
             return false
         }
     };
 
-    // HANDLE EDITING A BUDGET CATEGORY
     const budgetCategoryUpdateHandler = async (categoryId, body) => {
         const res = await api.updateBudgetCategory(categoryId, body, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
@@ -232,15 +208,14 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error editing budget category...')
+            alert('Erro ao editar categoria de valor...')
         }
     }
 
-    // HANDLE DELETING A BUDGET CATEGORY
     const budgetCategoryDeleteHandler = async (categoryId) => {
         const res = await api.deleteBudgetCategory(categoryId, {
             headers: {
-                authorization: `Viajante ${token}`
+                authorization: 'Viajante ${token}'
             }
         });
 
@@ -248,17 +223,14 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error deleting budget category...')
+            alert('Erro ao deletar categoria de gastos...')
         };
     }
 
-    // ----- BUDGET ITEMS -----
-
-    // HANDLE CREATING A BUDGET ITEM
     const budgetItemCreateHandler = async (body) => {
         const res = await api.createBudgetItem(body, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
@@ -266,15 +238,14 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error creating budget item...');
+            alert('Erro ao criar gasto...');
         }
     };
 
-    // HANDLE EDITING A BUDGET ITEM
     const budgetItemUpdateHandler = async (itemId, body) => {
         const res = await api.updateBudgetItem(itemId, body, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
@@ -282,15 +253,14 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error updating budget item...');
+            alert('Erro ao atualizar gasto...');
         }
     };
 
-    // HANDLE DELETING A BUDGET ITEM
     const budgetItemDeleteHandler = async (itemId) => {
         const res = await api.deleteBudgetItem(itemId, {
             headers: {
-                authorization: `Viajante ${token}`
+                authorization: 'Viajante ${token}'
             }
         });
 
@@ -298,61 +268,51 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error deleting item from category...');
+            alert('Erro ao deletar item da categoria...');
         };
     };
 
-
-
-
-    
-    
-   
-
-    // STATES, EFFECTS, METHODS FOR TRAVEL LOUNGE TAB
+    // STATES, EFFECTS, METHODS 
 
     const [messageData, setMessageData] = useState(null);
     const [travellerData, setTravellerData] = useState(null);
 
     useEffect(() => {
-        // update plan data on every trip data update
+        // atualizar plano
         setMessageData(tripData ? tripData.Comments : null);
         setTravellerData(tripData ? tripData.SavedUser : null);
     }, [tripData])
 
-    // HANDLE ADDING USER TO TRIP
     const userAddHandler = async (tripId, userId) => {
         const res = await api.addUserToTrip({
             TripId: tripId,
             UserId: userId
         }, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
-        // create unique budget for new travelelr
         const budgetRes = await api.createBudget({
             TripId: tripId,
             UserId: userId
         }, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
         if (res.status === 200 && budgetRes.status === 200) {
             api.getSingleTrip(id).then(res => {setTripData(res.data)});
         } else {
-            alert('Error adding user to trip...');
+            alert('Erro ao adicionar viajante neste ID...');
         };
     };
 
-    // HANDLE CREATING A TRIP COMMENT
     const postCreateHandler = async (body) => {
         const res = await api.createComment(body, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
@@ -360,15 +320,14 @@ export default function Tripcard({ user, token }) {
             const newCommentData = await api.getAllTripComments(id);
             setMessageData(newCommentData.data);
         } else {
-            alert('Error posting comment...')
+            alert('Erro ao adicionar comentário...')
         }
     };
 
-    // HANDLE DELETING A TRIP COMMENT
     const postDeleteHandler = async (postId) => {
         const res = await api.deleteComment(postId, {
             headers: {
-                authorization: `Viajante ${token}`,
+                authorization: 'Viajante ${token}',
             }
         });
 
@@ -377,7 +336,7 @@ export default function Tripcard({ user, token }) {
             setMessageData(newCommentData.data);
             return true
         } else {
-            alert('Error deleting comment');
+            alert('Erro ao deletar comentário');
             return false
         };
     };

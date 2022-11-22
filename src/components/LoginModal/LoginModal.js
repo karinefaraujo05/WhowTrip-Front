@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
@@ -16,12 +15,12 @@ const LoginModal = ({ loginModalState, loginModalClose, loginFormState, setLogin
         <>
         <Modal show={loginModalState} onHide={loginModalClose}>
             <Modal.Header className="loginModalHeader">
-                <Modal.Title><h2><strong>Login</strong></h2></Modal.Title>
+                <Modal.Title> <h2> <strong> Login </strong> </h2> </Modal.Title>
             </Modal.Header>
             <Modal.Body className="loginModalBody">
                 <Form onSubmit={handleLoginFormSubmit}>
                     <Form.Group className="mb-3">
-                        <Form.Label><strong>Username</strong></Form.Label>
+                        <Form.Label> <strong> Username </strong> </Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
                                 <FontAwesomeIcon icon={faUser} size='1x' />
@@ -31,7 +30,7 @@ const LoginModal = ({ loginModalState, loginModalClose, loginFormState, setLogin
                     </Form.Group>
 
                     <Form.Group className="mb-4">
-                        <Form.Label><strong>Senha</strong></Form.Label>
+                        <Form.Label><strong> Senha </strong></Form.Label>
                         <InputGroup>
                             <InputGroup.Text>
                                 <FontAwesomeIcon icon={faKey} size='1x' />
@@ -41,11 +40,8 @@ const LoginModal = ({ loginModalState, loginModalClose, loginFormState, setLogin
                     </Form.Group>
 
                     <Form.Group className="loginModalFooter">
-                        <Button type="submit" value="login" className="loginModalBtn mx-2" onClick={loginModalClose}>Login
-                        </Button>
-                        <Button className="loginModalCancelBtn mx-2" onClick={loginModalClose}>
-                            Cancel
-                        </Button>
+                        <Button type="submit" value="login" className="loginModalBtn mx-2" onClick={loginModalClose}> Login </Button>
+                        <Button className="loginModalCancelBtn mx-2" onClick={loginModalClose}> Cancel </Button>
                     </Form.Group>
                 </Form>
             </Modal.Body>

@@ -103,8 +103,6 @@ const api = {
         return axios.delete(`${URL_PREFIX}/api/plans/${planId}`, headers);
     },
 
-    // MISCELLANEOUS ROUTES
---
     addUserToTrip: function(body, headers) {
         return axios.post(`${URL_PREFIX}/api/trips/savedtrips`, body, headers)
     },

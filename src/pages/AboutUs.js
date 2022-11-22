@@ -10,7 +10,7 @@ export default function AboutUs() {
         <div className="container AboutUs">
             <div className="row AboutUsHeader">
                 <div className="col-12 text-center">
-                    <h2><strong> Conheça nossos Guias </strong></h2>
+                    <h2> <strong> Conheça nossos Guias </strong> </h2>
                     <p> Sinta-se livre para chamar um dos nossos agentes! </p>
                 </div>
             </div>
@@ -26,11 +26,11 @@ export default function AboutUs() {
                             <h4 className="description"> Guia do Norte </h4>
                         </div>
                         <ul className="social">
-                            <li>
-                                <a href="https://web.whatsapp.com" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faWhatsapp} size='1x' /></a>
+                            <li> 
+                                <a href="https://web.whatsapp.com" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faWhatsapp} size='1x' /> </a> 
                             </li>
-                            <li>
-                                <a href="https://www.instagram.com/faculdadefainor/" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>
+                            <li> 
+                                <a href="https://www.instagram.com/faculdadefainor/" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /> </a>
                             </li>
                         </ul>
                     </div>
@@ -47,9 +47,7 @@ export default function AboutUs() {
                         </div>
                         <ul className="social">
                             <li>
-                                <a href="https://www.convertte.com.br/gerador-link-whatsapp/?" target="blank" aria-hidden="true">
-                                    <FontAwesomeIcon icon={faWhatsapp} size='1x' />
-                                </a>
+                                <a href="https://www.convertte.com.br/gerador-link-whatsapp/?" target="blank" aria-hidden="true"> <FontAwesomeIcon icon={faWhatsapp} size='1x' /> </a>
                             </li>
                             <li>
                                 <a href="https://www.instagram.com/faculdadefainor/" target="blank" aria-hidden="true"><FontAwesomeIcon icon={faInstagram} size='1x' /></a>

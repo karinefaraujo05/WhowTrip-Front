@@ -1,9 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import Moment from 'react-moment';
 import { useParams } from 'react-router-dom';
 
-// BOOTSTRAP IMPORTS
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -14,36 +12,30 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCrown } from '@fortawesome/free-solid-svg-icons';
 
-// LOCAL IMPORTS
 import './Lounge.css';
 import Message from '../Loungemessage/Loungemessage.js';
 import api from '../../utils/api';
 
 export default function Lounge(props) {
     const { id } = useParams();
-    // STATE VARIABLES
-    // ---------------
-    // toggle all comments vs one comment
+    // setar todas as visualizações
     const [viewAll, setViewAll] = useState(true);
-    // state for new main comment
+    // comentário principal
     const [postContent, setPostContent] = useState('');
-    // state for new sub comment
+    // sub comentários
     const [commentContent, setCommentContent] = useState('');
-    // index to find individual comment data in messageData
+    // comentários individuais
     const [targetCommentIndex, setTargetCommentIndex] = useState(0);
-
-    // search bar
+    // barra de busca
     const [allUsers, setAllUsers] = useState([]);
     const [visibleSearchedUsers, setVisibleSearchedUsers] = useState([]);
     const [searchedUser, setSearchedUser] = useState('');
     const [searchedUserId, setSearchedUserId] = useState('');
 
-    // EFFECTS
-    // --------------
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
         const userData = await api.getAllUsers();
 
-        // create an object linking user IDs to usernames
         const users = [];
         for (let i=0; i<userData.data.length; i++) {
             users.push({
@@ -69,11 +61,7 @@ export default function Lounge(props) {
 
     }, [allUsers, searchedUser]);
 
-
-    // HELPER FUNCTIONS 
-    // ----------------
     const updateCommentTarget = (commentId) => {
-        // find index of comment in which commentId is found
         for (let i=0; i<props.messages.length; i++) {
             if (props.messages[i].id === commentId) {
                 setTargetCommentIndex(i);
@@ -82,22 +70,19 @@ export default function Lounge(props) {
         }
     };
 
-    // VISUAL TOGGLERS
-    // ---------------
-
     const handleExitCommentViewerClick = (e) => {
         e.preventDefault();
         setViewAll(true);
     };
 
-    // ADD USER TO TRIP
+    // adicionar usuário a viagem
     const handleAddUser = async (e) => {
         e.preventDefault();
         props.handleUserAddition(id, searchedUserId);
         setSearchedUser('');
     };
 
-    // CREATE NEW COMMENT ON TRIP
+    // criar um novo comentário na viagem
     const postSubmitHandler = async (e) => {
         e.preventDefault();
         const body = {
@@ -109,7 +94,7 @@ export default function Lounge(props) {
         setPostContent('');
     };
 
-    // CREATE NEW COMMENT ON COMMENT
+    // criar novo subcomentário
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
         const body = {
@@ -141,7 +126,7 @@ export default function Lounge(props) {
                     <div className="search-area">
                         <form onSubmit={handleAddUser}>
                             <Form.Control
-                                className="user-search-bar"
+                                className="search-bar"
                                 type="text"
                                 placeholder="Procure por UserName"
                                 value={searchedUser}
@@ -161,7 +146,7 @@ export default function Lounge(props) {
                                 {visibleSearchedUsers.map((user, index) => (
                                     <button
                                         key={index}
-                                        className="user-search-result"
+                                        className="result"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             setSearchedUser(user.username);
@@ -177,8 +162,7 @@ export default function Lounge(props) {
                 </div>
             </Col>
             <Col lg={9}>
-                <div className="message-board">
-                    <h3>Quadro de Opiniões</h3>
+                <div className="message-board"> <h3> Quadro de Opiniões </h3>
                     {viewAll === true ? (
                         <div className="messages">
                             {props.messages.map(message => {
@@ -205,13 +189,7 @@ export default function Lounge(props) {
                         </div>
                     ) : (
                         <div className="messages">
-                            <button
-                                className="back-to-view-all-btn"
-                                onClick={handleExitCommentViewerClick}
-                            >
-                                <FontAwesomeIcon icon={faChevronCircleLeft} size='1x' className="me-2"/>
-                                Voltar
-                            </button>
+                            <button className="back-to-view-all-btn" onClick={handleExitCommentViewerClick} > <FontAwesomeIcon icon={faChevronCircleLeft} size='1x' className="me-2"/> Voltar </button>
                             <div className="comment-subject-wrapper">
                                 <h6 className="comment-subject-content">{props.messages[targetCommentIndex].content}</h6>
                                 <p className="comment-subject-poster">
@@ -219,7 +197,7 @@ export default function Lounge(props) {
                                     <Moment className="comment-subject-date" format="DD MMM YYYY" date = {props.messages[targetCommentIndex].createdAt} />
                                 </p>
                             </div>
-                            <p>Respostas:</p>
+                            <p> Respostas: </p>
                             {props.messages[targetCommentIndex].SubComment ? (props.messages[targetCommentIndex].SubComment.map(message =>
                                 (<Message
                                     key={message.id}
@@ -233,9 +211,7 @@ export default function Lounge(props) {
                     )}
                     {viewAll === true ? (
                         <form id="post-submit-form" onSubmit={postSubmitHandler}>
-                            <Form.Control
-                                type="text"
-                                placeholder="Escreva o que pensa sobre esse lugar!"
+                            <Form.Control type="text" placeholder="Escreva o que pensa sobre esse lugar!" 
                                 value={postContent}
                                 onChange={(e) => {
                                     e.preventDefault();
@@ -245,9 +221,7 @@ export default function Lounge(props) {
                         </form>
                     ) : (
                         <form id="comment-submit-form" onSubmit={commentSubmitHandler}>
-                            <Form.Control
-                                type="text"
-                                placeholder="Deixe a sua opinião!"
+                            <Form.Control type="text" placeholder="Deixe a sua opinião!"
                                 value={commentContent}
                                 onChange={(e) => {
                                     e.preventDefault();

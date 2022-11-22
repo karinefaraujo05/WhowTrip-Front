@@ -5,18 +5,15 @@ import 'react-dates/lib/css/_datepicker.css';
 import { SingleDatePicker } from 'react-dates';
 import moment from 'moment';
 
-// FONT AWESOME IMPORTS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
-// LOCAL IMPORTS
 import './Plans.css';
 import Plancard from '../Plancard/Plancard.js';
 import Plandetails from '../Plandetails/Plandetails.js';
 
 export default function Plantab(props) {
     const { id } = useParams();
-    // STATE VARIABLES
     const [viewAllPlans, setViewAllPlans] = useState(true);
     const [isAddingPlan, setIsAddingPlan] = useState(false);
     const [targetPlanIndex, setTargetPlanIndex] = useState(0);
@@ -24,11 +21,8 @@ export default function Plantab(props) {
     const [newPlanDate, setNewPlanDate] = useState(null);
     const [dateFocus, setDateFocus] = useState(false);
 
-
-    // HELPER METHODS
--
     const updatePlanTarget = (planId) => {
-        // find index of planData in which planId is found
+        // encontrar os dados do planID dentro do planData 
         for (let i=0; i<props.planData.length; i++) {
             if (props.planData[i].id === planId) {
                 setTargetPlanIndex(i)
@@ -42,7 +36,6 @@ export default function Plantab(props) {
         setIsAddingPlan(!isAddingPlan);
     }
 
-    // DATA HANDLING METHODS
     const handlePlanCreate = async (e) => {
         e.preventDefault();
 
@@ -58,7 +51,7 @@ export default function Plantab(props) {
         const newPlanId = props.handlePlanCreate(body);
 
         if (newPlanId) {
-            // view new plan
+            // novo plano
             setTargetPlanIndex(updatePlanTarget(newPlanId))
             setIsAddingPlan(false);
             setNewPlanName('');
@@ -68,19 +61,17 @@ export default function Plantab(props) {
 
     const handlePlanDelete = async (planId) => {
         const deletePlan = props.handlePlanDelete(planId);
-
         if (deletePlan) { setViewAllPlans(true);};
     };
 
     const handlePlanUpdate = async (planId, body) => { props.handlePlanUpdate(planId, body); };
-
+    
     const handleCommentOnPlan = async (planId, message) => {
         const body = {
             UserId: props.user.id,
             PlanId: planId,
             content: message
         };
-
         props.handleCommentCreate(body);
     };
 
@@ -99,7 +90,6 @@ export default function Plantab(props) {
                         <>
                         {isAddingPlan ? (
                             <form className="plan-card" onSubmit={handlePlanCreate}>
-
                                 <input type="text" placeholder="Adicione aqui o seu plano:" value={newPlanName}
                                     onChange={(e) => {
                                         e.preventDefault();
@@ -118,7 +108,7 @@ export default function Plantab(props) {
                                         required={true}
                                     />
                                 </div>
-                                <input type="submit" value="Adicione!" className="submit-add-plan" />
+                                <input type="submit" value="Adicione" className="submit-add-plan" />
                             </form>
                         ) : ( null )}
                         {props.planData.map((plan, i) => 
@@ -159,6 +149,5 @@ export default function Plantab(props) {
             </>
         )}
         </>
-        
     )
 }

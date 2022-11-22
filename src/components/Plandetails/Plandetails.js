@@ -1,46 +1,40 @@
 import React, { useState } from 'react';
 import Moment from 'react-moment';
 
-// FONT AWESOME IMPORTS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCrown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
-// BOOTSTRAP IMPORTS
 import Form from 'react-bootstrap/Form';
 import Message from '../Loungemessage/Loungemessage.js'
 
-// LOCAL IMPORTS
 import './Plandetails.css';
 
 export default function Plandetails(props) {
-    // STATE VARIABLES
-    // ---------------
+    
     const [isEditing, setIsEditing] = useState(false);
     const [commentValue, setCommentValue] = useState('');
-    // plan variables
     const [planTitle, setPlanTitle] = useState(props.planData.name);
     const [planContent, setPlanContent] = useState(props.planData.content);
     const [planBudget, setPlanBudget] = useState(props.planData.budget);
 
-    // VISUAL TOGGLING
     const togglePlanEditor = (e) => {
         e.preventDefault();
         setIsEditing(!isEditing);
     }
     
-    // ADD COMMENT TO PLAN
+    // adicionar comentário no plano
     const submitPlanComment = (e) => {
         e.preventDefault();
         props.commentHandler(props.planData.id, commentValue);
         setCommentValue('');
     };
     
-    // DELETE COMMENT
+    // apagar comentário
     const deleteComment = (commentId) => {
         props.commentDeleteHandler(commentId);
     };
 
-    // UPDATE PLAN
+    // atualizar plano
     const updatePlan = (e) => {
         e.preventDefault();
         const body = {
@@ -52,11 +46,11 @@ export default function Plandetails(props) {
         setIsEditing(false);
     }
 
-    // DELETE PLAN
+    // apagar plano
     const deletePlan = (e) => {
         e.preventDefault();
 
-        if (window.confirm(`Você realmente quer deletar esse itinerário?`)) {
+        if (window.confirm('Você realmente quer deletar esse itinerário?')) {
             props.planDeleteHandler(props.planData.id);
         };
     };
@@ -65,15 +59,12 @@ export default function Plandetails(props) {
         <>
         <div className="plan-item-center opted-in-travellers">
         <div className="plan-partaker plan-creator">
-            <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' />
-                {props.planData.User.username}
-            </div>
+            <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' /> {props.planData.User.username} </div>
             {props.planData.SavedUser.map((savedUser, i) => {
                 return (
                     <div key={i} className="plan-partaker">
-                        <FontAwesomeIcon icon={faUserCircle} size='1x' className='me-2' />
-                        {savedUser.username}
-                        </div>
+                        <FontAwesomeIcon icon={faUserCircle} size='1x' className='me-2' /> {savedUser.username}
+                    </div>
                     )
             })}
         </div>
@@ -147,9 +138,7 @@ export default function Plandetails(props) {
                     )
                 })}
                 <form onSubmit={submitPlanComment}>
-                    <Form.Control
-                        type="text"
-                        placeholder="Dê sua opinião!"
+                    <Form.Control type="text" placeholder="Dê sua opinião!"
                         value={commentValue}
                         onChange={(e) => {
                             e.preventDefault();
