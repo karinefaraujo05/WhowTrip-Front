@@ -11,7 +11,11 @@ import Plantab from '../Plans/Plans.js';
 import api from '../../utils/api.js';
 
 export default function Tripcard({ user, token }) {
-    const { id } = useParams();
+    
+    const location = window.location.pathname;
+    const getId = location.split('/');
+    const id = getId[2]
+    
     const [tripData, setTripData] = useState(null);
 
     // useEffect(() => {

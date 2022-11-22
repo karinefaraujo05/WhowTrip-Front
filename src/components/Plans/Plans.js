@@ -13,7 +13,11 @@ import Plancard from '../Plancard/Plancard.js';
 import Plandetails from '../Plandetails/Plandetails.js';
 
 export default function Plantab(props) {
-    const { id } = useParams();
+
+    const location = window.location.pathname;
+    const getId = location.split('/');
+    const id = getId[2]
+    
     const [viewAllPlans, setViewAllPlans] = useState(true);
     const [isAddingPlan, setIsAddingPlan] = useState(false);
     const [targetPlanIndex, setTargetPlanIndex] = useState(0);

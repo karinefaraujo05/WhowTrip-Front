@@ -17,7 +17,11 @@ import Message from '../Loungemessage/Loungemessage.js';
 import api from '../../utils/api';
 
 export default function Lounge(props) {
-    const { id } = useParams();
+
+    const location = window.location.pathname;
+    const getId = location.split('/');
+    const id = getId[2]
+    
     // setar todas as visualizações
     const [viewAll, setViewAll] = useState(true);
     // comentário principal
