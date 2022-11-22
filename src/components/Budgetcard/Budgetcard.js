@@ -30,7 +30,6 @@ export default function Budgetcard(props) {
     }
 
     // BUDGET ITEM METHODS
---------
 
     // handle adding a budget item
     const handleAddBudgetItem = (e) => {
@@ -49,7 +48,6 @@ export default function Budgetcard(props) {
     }
 
     // BUDGET CATEGORY METHODS
---------
 
     // handle deleting a budget category
     const handleDeleteBudgetCategory = (e) => {
