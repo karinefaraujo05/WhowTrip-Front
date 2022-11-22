@@ -98,8 +98,8 @@ export default function Main(props) {
                 <LoginModal loginModalState={loginModalState} loginModalClose={loginModalClose} loginFormState={loginFormState} setLoginFormState={setLoginFormState} handleLoginFormSubmit={handleLoginFormSubmit} />
                 <SignupModal signupModalState={signupModalState} signupModalClose={signupModalClose} />
             </div>
-            <Features />
             <Recommendation />
+            <Features />
             <Contact />
         </div>
     )
