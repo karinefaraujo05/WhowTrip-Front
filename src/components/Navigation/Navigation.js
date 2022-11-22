@@ -19,14 +19,14 @@ import './Navigation.css';
 export default function Navigation(props) {
     // saber se o user está na página inicial
     const location = window.location.pathname;
-    const isHome = (location === '/');
+    const isHome = (location === `/`);
 
     const toCreateTripPage = () => {
-        window.location = '/createTrip'
+        window.location = `/createTrip`
     };
 
     const toViewTripsPage = () => {
-        window.location = '/viewTrips'
+        window.location = `/viewTrips`
     };
 
     return (
@@ -36,7 +36,7 @@ export default function Navigation(props) {
                 className="navbar custom-nav fixed-top">
                 <Container fluid style={{ display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex' }}>
-                        <Nav.Link className="custom-navlink-text mx-4 mb-2" href="/"><img src={Logo} width="180" height="60" /></Nav.Link>
+                        <Nav.Link className="custom-navlink-text mx-4 mb-2" href="/"><img src={Logo} width="180" height="60" alt='logo' /></Nav.Link>
                     </div>
                     <Navbar.Toggle className="navbar-toggler" aria-controls="basic-navbar-nav">
                         <span><FontAwesomeIcon style={{ color: "white" }} icon={faBars}/></span>
@@ -61,7 +61,7 @@ export default function Navigation(props) {
                 className="navbar custom-nav fixed-top">
                 <Container fluid className="container-mobile">
                     <div className="loggedinLogo">
-                        <Nav.Link className="custom-navlink-text mx-4" href="/"><img src={Logo} width="180" height="60" /></Nav.Link>
+                        <Nav.Link className="custom-navlink-text mx-4" href="/"><img src={Logo} width="180" height="60" alt='logo' /></Nav.Link>
                     </div>
                     <div className="navbar-container">
                         <Nav className="custom-navbar-items">

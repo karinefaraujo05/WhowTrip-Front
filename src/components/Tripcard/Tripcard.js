@@ -18,7 +18,7 @@ export default function Tripcard({ user, token }) {
         api.getSingleTrip(id).then(res => {setTripData(res.data)});
     }, [id])
 
-    const [activeTab, setActiveTab] = useState('Overview')
+    const [activeTab, setActiveTab] = useState(`Overview`)
     const overviewRef=createRef();
     const plansRef=createRef();
     const budgetRef=createRef();
@@ -33,7 +33,7 @@ export default function Tripcard({ user, token }) {
     const planAddHandler = async (body) => {
         const res = await api.createPlan(body, {
             headers: {
-                authorization: 'Viajante ${token}'
+                authorization: `Viajante ${token}`
             }
         })
 
@@ -43,7 +43,7 @@ export default function Tripcard({ user, token }) {
             setPlanData(allPlanData.data);
             return res.data.id
         } else {
-            alert('Erro ao criar novo plano...');
+            alert(`Erro ao criar novo plano...`);
             return null
         }
     };
@@ -52,7 +52,7 @@ export default function Tripcard({ user, token }) {
     const planDeleteHandler = async (planId) => {
         const res = await api.deletePlan(planId, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -61,7 +61,7 @@ export default function Tripcard({ user, token }) {
             setPlanData(allPlanData.data);
             return true
         } else {
-            alert('Erro ao deletar itinerário...')
+            alert(`Erro ao deletar itinerário...`)
             return false
         }
     }
@@ -70,7 +70,7 @@ export default function Tripcard({ user, token }) {
     const planUpdateHandler = async (planId, body) => {
         const res = await api.updatePlan(planId, body, {
             headers: {
-                authorization: 'Viajante: ${token}',
+                authorization: `Viajante: ${token}`,
             }
         });
 
@@ -86,7 +86,7 @@ export default function Tripcard({ user, token }) {
 
         const res = await api.createComment(body, {
             headers: {
-                authorization: 'Viajante ${token}'
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -94,7 +94,7 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Erro ao fazer comentário de plano...');
+            alert(`Erro ao fazer comentário de plano...`);
         }
     }
 
@@ -103,7 +103,7 @@ export default function Tripcard({ user, token }) {
 
         const res = await api.deleteComment(commentId, {
             headers: {
-                authorization: 'Viajante ${token}'
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -111,7 +111,7 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data)
         } else {
-            alert('Erro ao deletar comentário...')
+            alert(`Erro ao deletar comentário...`)
         }
     }
 
@@ -127,7 +127,7 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Erro ao adicionar no plano...');
+            alert(`Erro ao adicionar no plano...`);
         }
     }
 
@@ -143,7 +143,7 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Erro ao remover do plano...');
+            alert(`Erro ao remover do plano...`);
         }
     }
 
@@ -166,7 +166,7 @@ export default function Tripcard({ user, token }) {
             total: newTotal
         }, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -174,7 +174,7 @@ export default function Tripcard({ user, token }) {
             const budgetRes = await api.getSingleBudget(id, user.id);
             setBudgetData(budgetRes.data[0]);
         } else {
-            alert('Erro ao conectar servidor...')
+            alert(`Erro ao conectar servidor...`)
         }
     };
 
@@ -183,7 +183,7 @@ export default function Tripcard({ user, token }) {
     const budgetCategoryCreateHandler = async (body) => {
         const res = await api.createBudgetCategory(body, {
             headers: {
-                authorization: 'Viajante ${token}'
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -192,7 +192,7 @@ export default function Tripcard({ user, token }) {
             setBudgetData(newBudgetData.data[0]);
             return true
         } else {
-            alert('Erro ao criar categoria de gastos');
+            alert(`Erro ao criar categoria de gastos`);
             return false
         }
     };
@@ -200,7 +200,7 @@ export default function Tripcard({ user, token }) {
     const budgetCategoryUpdateHandler = async (categoryId, body) => {
         const res = await api.updateBudgetCategory(categoryId, body, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -208,14 +208,14 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Erro ao editar categoria de valor...')
+            alert(`Erro ao editar categoria de valor...`)
         }
     }
 
     const budgetCategoryDeleteHandler = async (categoryId) => {
         const res = await api.deleteBudgetCategory(categoryId, {
             headers: {
-                authorization: 'Viajante ${token}'
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -223,14 +223,14 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Erro ao deletar categoria de gastos...')
+            alert(`Erro ao deletar categoria de gastos...`)
         };
     }
 
     const budgetItemCreateHandler = async (body) => {
         const res = await api.createBudgetItem(body, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -238,14 +238,14 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Erro ao criar gasto...');
+            alert(`Erro ao criar gasto...`);
         }
     };
 
     const budgetItemUpdateHandler = async (itemId, body) => {
         const res = await api.updateBudgetItem(itemId, body, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -253,14 +253,14 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Erro ao atualizar gasto...');
+            alert(`Erro ao atualizar gasto...`);
         }
     };
 
     const budgetItemDeleteHandler = async (itemId) => {
         const res = await api.deleteBudgetItem(itemId, {
             headers: {
-                authorization: 'Viajante ${token}'
+                authorization: `Viajante ${token}`
             }
         });
 
@@ -268,7 +268,7 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Erro ao deletar item da categoria...');
+            alert(`Erro ao deletar item da categoria...`);
         };
     };
 
@@ -289,7 +289,7 @@ export default function Tripcard({ user, token }) {
             UserId: userId
         }, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -298,21 +298,21 @@ export default function Tripcard({ user, token }) {
             UserId: userId
         }, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
         if (res.status === 200 && budgetRes.status === 200) {
             api.getSingleTrip(id).then(res => {setTripData(res.data)});
         } else {
-            alert('Erro ao adicionar viajante neste ID...');
+            alert(`Erro ao adicionar viajante neste ID...`);
         };
     };
 
     const postCreateHandler = async (body) => {
         const res = await api.createComment(body, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -320,14 +320,14 @@ export default function Tripcard({ user, token }) {
             const newCommentData = await api.getAllTripComments(id);
             setMessageData(newCommentData.data);
         } else {
-            alert('Erro ao adicionar comentário...')
+            alert(`Erro ao adicionar comentário...`)
         }
     };
 
     const postDeleteHandler = async (postId) => {
         const res = await api.deleteComment(postId, {
             headers: {
-                authorization: 'Viajante ${token}',
+                authorization: `Viajante ${token}`,
             }
         });
 
@@ -336,7 +336,7 @@ export default function Tripcard({ user, token }) {
             setMessageData(newCommentData.data);
             return true
         } else {
-            alert('Erro ao deletar comentário');
+            alert(`Erro ao deletar comentário`);
             return false
         };
     };
@@ -358,7 +358,7 @@ export default function Tripcard({ user, token }) {
         loungeRef.current.className = "trip-nav-item";
 
         // set target to active
-        e.target.classList.add('trip-nav-active');
+        e.target.classList.add(`trip-nav-active`);
         setActiveTab(e.target.id)
     };
 
@@ -369,12 +369,12 @@ export default function Tripcard({ user, token }) {
                         trip={tripData}
                         plans={planData}
                     />
-        } else if (activeTab === 'Overview') {
+        } else if (activeTab === `Overview`) {
             return <Tripoverview
                         trip={tripData}
                         plans={planData}
                     />
-        } else if (activeTab === 'Plans') {
+        } else if (activeTab === `Plans`) {
             return (
                 <div>
                     <h1>Itinerários</h1>
@@ -392,7 +392,7 @@ export default function Tripcard({ user, token }) {
                     />
                 </div>
             )
-        } else if (activeTab === 'Budget') {
+        } else if (activeTab === `Budget`) {
             return (
                 <div>
                     <h1>Gastos</h1>
@@ -411,7 +411,7 @@ export default function Tripcard({ user, token }) {
                     />
                 </div>
             )
-        } else if (activeTab === 'Lounge') {
+        } else if (activeTab === `Lounge`) {
             return (
                 <div>
                     <h1>Chat</h1>

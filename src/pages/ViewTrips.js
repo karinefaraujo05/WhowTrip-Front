@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ViewTripsCard from '../components/ViewTripsCard/ViewTripsCard';
 
 import viewTripImg from '../assets/viewTrip.png';
-import earth from '../assets/earth.png';
 import './ViewTrips.css';
 import api from '../utils/api';
 
@@ -36,18 +35,18 @@ export default function ViewTrips(props) {
     };
 
     const toThatTripHandler = (id) => {
-        window.location = '/trips/${id}'
+        window.location = `/trips/${id}`
     }
 
     const toCreateTripHandler = () => {
-        window.location = '/createTrip'
+        window.location = `/createTrip`
     }
 
     return (
         <div className="viewTripsMain">
 
             <div className="viewTripsHeaderBox">
-                <img className="viewTripsBackgroundImg" src={viewTripImg} />
+                <img className="viewTripsBackgroundImg" src={viewTripImg} alt='tripp' />
                 <h1 className="viewTripsHeader"> Suas Viagens </h1>
             </div>
 

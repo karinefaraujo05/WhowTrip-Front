@@ -18,7 +18,7 @@ export default function AboutUs() {
                 <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div className="our-team">
                         <div className="image">
-                            <img className="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHpIafZFq65vmmA2q1wb6eW-NwabU7BP-5bxS6q6LmHXupASton5aXFFrGZIZPa_X79Wc&usqp=CAU" />
+                            <img className="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHpIafZFq65vmmA2q1wb6eW-NwabU7BP-5bxS6q6LmHXupASton5aXFFrGZIZPa_X79Wc&usqp=CAU" alt='img' />
                         </div>
                         <div className="team-content">
                             <h4 className="title"> Agente de Turismo </h4>
@@ -38,7 +38,7 @@ export default function AboutUs() {
                 <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div className="our-team">
                         <div className="image">
-                            <img className="img-fluid" src="https://static.vecteezy.com/ti/vetor-gratis/t2/654820-desenho-de-rosto-de-mulher-vetor.jpg" />
+                            <img className="img-fluid" src="https://static.vecteezy.com/ti/vetor-gratis/t2/654820-desenho-de-rosto-de-mulher-vetor.jpg" alt='img' />
                         </div>
                         <div className="team-content">
                             <h4 className="title"> Agente de Turismo</h4>
@@ -58,7 +58,7 @@ export default function AboutUs() {
                 <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div className="our-team">
                         <div className="image">
-                            <img className="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTLJBmf7nSd2ajj_h6YTYScqIKFRj46xORMYE2Mp5DCl_4eACUKi2BHOr44tkYM4igjME&usqp=CAU" />
+                            <img className="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTLJBmf7nSd2ajj_h6YTYScqIKFRj46xORMYE2Mp5DCl_4eACUKi2BHOr44tkYM4igjME&usqp=CAU" alt='img' />
                         </div>
                         <div className="team-content">
                             <h4 className="title"> Agente de Turismo</h4>
@@ -78,7 +78,7 @@ export default function AboutUs() {
                 <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div className="our-team">
                         <div className="image">
-                            <img className="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqqsUS28UqbPQu-fjSHbi7w5XDKW57rYytH-7e0YzyUzM-GpsrvXN6U0BE_hvq8OiUkiA&usqp=CAU" />
+                            <img className="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqqsUS28UqbPQu-fjSHbi7w5XDKW57rYytH-7e0YzyUzM-GpsrvXN6U0BE_hvq8OiUkiA&usqp=CAU" alt='img' />
                         </div>
                         <div className="team-content">
                             <h4 className="title"> Agente de Turismo</h4>

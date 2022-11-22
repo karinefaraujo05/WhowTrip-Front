@@ -7,7 +7,7 @@ export default function Features() {
     return (
         <div className="features-main" id="features">
             <div className="d-flex flex-column align-items-center">
-                <img className="featuresLogo" src={featuresLogo} />
+                <img className="featuresLogo" src={featuresLogo} alt='logo' />
             </div>
             <div className="features-header">
                 <h1> PLANEJAMENTO  </h1>
@@ -15,9 +15,7 @@ export default function Features() {
             </div>
             <div className="features-content">
                 <div className="features-card">
-
-                    <img className="features-1-img" id="features-budget-img-mobile" src="https://images.unsplash.com/photo-1525026198548-4baa812f1183?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80" />
-
+                    <img className="features-1-img" id="features-budget-img-mobile" src="https://images.unsplash.com/photo-1525026198548-4baa812f1183?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80" alt=''/>
                     <div className="features-card-main" id="main1">
                         <div className="features-card-number">
                             <span className="features-subheader"> Escolha qual itinerário seguir </span>
@@ -36,7 +34,7 @@ export default function Features() {
                 </div>
                 <div className="features-card">
 
-                    <img className="features-2-img-mobile" src="https://images.unsplash.com/photo-1525026198548-4baa812f1183?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80" />
+                    <img className="features-2-img-mobile" src="https://images.unsplash.com/photo-1525026198548-4baa812f1183?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80" alt='' />
 
                     <div className="features-card-main">
                         <div className="features-card-number">
@@ -52,7 +50,7 @@ export default function Features() {
                         </div>
                     </div>
 
-                    <img className="features-2-img" src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80" />
+                    <img className="features-2-img" src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80" alt='' />
 
                 </div>
             </div>

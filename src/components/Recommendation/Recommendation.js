@@ -6,7 +6,7 @@ export default function Recommendation() {
     return (
         <div className="recommendation-main" id="recommendation">
             <div className="d-flex flex-column align-items-center">
-            <img className="destination" src={destination}/>
+            <img className="destination" src={destination} alt='destination'/>
             </div>
             <div className="header mb-4">
                 <h1 className="header"> Nossas recomendações! </h1>
