@@ -65,7 +65,7 @@ export default function Tripcard({ user, token }) {
             setPlanData(allPlanData.data);
             return res.data.id
         } else {
-            alert('Error creating new plan...');
+            alert(`Error creating new plan...`);
             return null
         }
     };
@@ -84,7 +84,7 @@ export default function Tripcard({ user, token }) {
             setPlanData(allPlanData.data);
             return true
         } else {
-            alert('Erro ao deletar itinerário...')
+            alert(`Erro ao deletar itinerário...`)
             return false
         }
     }
@@ -118,7 +118,7 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Error commenting on plan...');
+            alert(`Error commenting on plan...`);
         }
     }
 
@@ -135,7 +135,7 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data)
         } else {
-            alert('Error deleting comment...')
+            alert(`Error deleting comment...`)
         }
     }
 
@@ -151,7 +151,7 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Error joining plan...');
+            alert(`Error joining plan...`);
         }
     }
 
@@ -167,7 +167,7 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert('Error opting out of plan...');
+            alert(`Error opting out of plan...`);
         }
     }
 
@@ -209,7 +209,7 @@ export default function Tripcard({ user, token }) {
             const budgetRes = await api.getSingleBudget(id, user.id);
             setBudgetData(budgetRes.data[0]);
         } else {
-            alert('Error connecting to server... please try again later.')
+            alert(`Error connecting to server... please try again later.`)
         }
     };
 
@@ -229,7 +229,7 @@ export default function Tripcard({ user, token }) {
             setBudgetData(newBudgetData.data[0]);
             return true
         } else {
-            alert('Error creating budget category');
+            alert(`Error creating budget category`);
             return false
         }
     };
@@ -246,7 +246,7 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error editing budget category...')
+            alert(`Error editing budget category...`)
         }
     }
 
@@ -262,7 +262,7 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error deleting budget category...')
+            alert(`Error deleting budget category...`)
         };
     }
 
@@ -280,7 +280,7 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error creating budget item...');
+            alert(`Error creating budget item...`);
         }
     };
 
@@ -296,7 +296,7 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error updating budget item...');
+            alert(`Error updating budget item...`);
         }
     };
 
@@ -312,7 +312,7 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert('Error deleting item from category...');
+            alert(`Error deleting item from category...`);
         };
     };
 
@@ -358,7 +358,7 @@ export default function Tripcard({ user, token }) {
         if (res.status === 200 && budgetRes.status === 200) {
             api.getSingleTrip(id).then(res => {setTripData(res.data)});
         } else {
-            alert('Error adding user to trip...');
+            alert(`Error adding user to trip...`);
         };
     };
 
@@ -374,7 +374,7 @@ export default function Tripcard({ user, token }) {
             const newCommentData = await api.getAllTripComments(id);
             setMessageData(newCommentData.data);
         } else {
-            alert('Error posting comment...')
+            alert(`Error posting comment...`)
         }
     };
 
@@ -391,7 +391,7 @@ export default function Tripcard({ user, token }) {
             setMessageData(newCommentData.data);
             return true
         } else {
-            alert('Error deleting comment');
+            alert(`Error deleting comment`);
             return false
         };
     };
@@ -414,7 +414,7 @@ export default function Tripcard({ user, token }) {
         loungeRef.current.className = "trip-nav-item";
 
         // set target to active
-        e.target.classList.add('trip-nav-active');
+        e.target.classList.add(`trip-nav-active`);
         setActiveTab(e.target.id)
     };
 
@@ -425,12 +425,12 @@ export default function Tripcard({ user, token }) {
                         trip={tripData}
                         plans={planData}
                     />
-        } else if (activeTab === 'Overview') {
+        } else if (activeTab === `Overview`) {
             return <Tripoverview
                         trip={tripData}
                         plans={planData}
                     />
-        } else if (activeTab === 'Plans') {
+        } else if (activeTab === `Plans`) {
             return (
                 <div>
                     <h1>Itinerários</h1>
@@ -447,7 +447,7 @@ export default function Tripcard({ user, token }) {
                     />
                 </div>
             )
-        } else if (activeTab === 'Budget') {
+        } else if (activeTab === `Budget`) {
             return (
                 <div>
                     <h1>Gastos</h1>
@@ -465,7 +465,7 @@ export default function Tripcard({ user, token }) {
                     />
                 </div>
             )
-        } else if (activeTab === 'Lounge') {
+        } else if (activeTab === `Lounge`) {
             return (
                 <div>
                     <h1>Chat</h1>
