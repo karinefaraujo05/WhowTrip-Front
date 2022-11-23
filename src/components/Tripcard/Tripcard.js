@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createRef } from 'react';
-import { useParams } from 'react-router-dom';
+
+// BOOTSTRAP IMPORTS
 import Container from 'react-bootstrap/Container';
 
 // LOCAL IMPORTS
@@ -11,49 +12,67 @@ import Plantab from '../Plans/Plans.js';
 import api from '../../utils/api.js';
 
 export default function Tripcard({ user, token }) {
-    
+    // TRIP ID
     const location = window.location.pathname;
     const getId = location.split('/');
     const id = getId[2]
-    
+
+
+    // INITIAL CALLS TO API TO GET TRIPDATA. BUDGET DATA
+    // -------------------------------------------------
     const [tripData, setTripData] = useState(null);
 
-    // useEffect(() => {
-    //     api.getSingleTrip(id).then(res => {setTripData(res.data)});
-    // }, [id])
+    useEffect(() => {
+        // ON LOAD - TRIP DATA
+        api.getSingleTrip(id).then(res => {
+            setTripData(res.data)});
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
-    const [activeTab, setActiveTab] = useState(`Overview`)
-    // const overviewRef=createRef();
-    // const plansRef=createRef();
-    // const budgetRef=createRef();
-    // const loungeRef=createRef();
 
+    // SET REFERENCE, STATES FOR TAB SWITCHING
+    // ---------------------------------------
+    const [activeTab, setActiveTab] = useState('Overview')
+    const overviewRef=createRef();
+    const plansRef=createRef();
+    const budgetRef=createRef();
+    const loungeRef=createRef();
+
+
+
+
+    // STATES, EFFECTS, METHODS FOR PLANNING TAB
+    // ----------------------------------------------------------
     const [planData, setPlanData] = useState(null);
 
-    // useEffect(() => {
-    //     setPlanData(tripData ? tripData.Plans : null)
-    // }, [tripData])
+    useEffect(() => {
+        // update plan data on every trip data update
+        setPlanData(tripData ? tripData.Plans : null)
+    }, [tripData])
 
+    // HANDLE CREATING A PLAN
     const planAddHandler = async (body) => {
+        // create new plan
         const res = await api.createPlan(body, {
             headers: {
                 authorization: `Viajante ${token}`
             }
         })
 
-        // caso tenha sido um sucesso, recupere os novos
+        // on success, retrieve new trip data for re-render
         if (res.status === 200) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
             return res.data.id
         } else {
-            alert(`Erro ao criar novo plano...`);
+            alert('Error creating new plan...');
             return null
         }
     };
 
     // Deletando um itinerário
     const planDeleteHandler = async (planId) => {
+        // delete itinerário
         const res = await api.deletePlan(planId, {
             headers: {
                 authorization: `Viajante ${token}`,
@@ -65,13 +84,14 @@ export default function Tripcard({ user, token }) {
             setPlanData(allPlanData.data);
             return true
         } else {
-            alert(`Erro ao deletar itinerário...`)
+            alert('Erro ao deletar itinerário...')
             return false
         }
     }
 
-    // atualizando um plano
+    // HANDLE UPDATING A PLAN
     const planUpdateHandler = async (planId, body) => {
+        // update plan
         const res = await api.updatePlan(planId, body, {
             headers: {
                 authorization: `Viajante: ${token}`,
@@ -85,9 +105,9 @@ export default function Tripcard({ user, token }) {
         };
     }
 
-    // Comentários de plano - tratar
+    // HANDLE COMMENTING ON A PLAN
     const planCommentCreateHandler = async (body) => {
-
+        // create new comment
         const res = await api.createComment(body, {
             headers: {
                 authorization: `Viajante ${token}`
@@ -98,13 +118,13 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert(`Erro ao fazer comentário de plano...`);
+            alert('Error commenting on plan...');
         }
     }
 
-    // Deletar um comentário
+    // HANDLE DELETING A COMMENT
     const planCommentDeleteHandler = async (commentId) => {
-
+        // delete comment
         const res = await api.deleteComment(commentId, {
             headers: {
                 authorization: `Viajante ${token}`
@@ -115,13 +135,13 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data)
         } else {
-            alert(`Erro ao deletar comentário...`)
+            alert('Error deleting comment...')
         }
     }
 
-    // Adicionar usuário a um plano
+    // OPT INTO A PLAN
     const optInHandler = async (planId) => {
-
+        // opt into plan
         const res = await api.addUserToPlan({
             UserId: user.id,
             PlanId: planId,
@@ -131,13 +151,13 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert(`Erro ao adicionar no plano...`);
+            alert('Error joining plan...');
         }
     }
 
-    // Remover do plano
+    // OPT OUT OF PLAN
     const optOutHandler = async (planId) => {
-        
+        // opt out of plan
         const res = await api.removeUserFromPlan({
             UserId: user.id,
             PlanId: planId,
@@ -147,13 +167,22 @@ export default function Tripcard({ user, token }) {
             const allPlanData = await api.getAllTripPlans(id);
             setPlanData(allPlanData.data);
         } else {
-            alert(`Erro ao remover do plano...`);
+            alert('Error opting out of plan...');
         }
     }
 
+    // ----------------------------------------------------------
+    
+
+
+
+
+    // STATES, EFFECTS, METHODS FOR BUDGET TAB
+    // ----------------------------------------------------------
     const [budgetData, setBudgetData] = useState(null);
 
-   /* useEffect(() => {
+    useEffect(() => {
+        // ON LOAD WITH USER - BUDGET DATA
         if (user.id) {
             api.getSingleBudget(id, user.id).then(res => {
                 if (res.data) {
@@ -161,11 +190,12 @@ export default function Tripcard({ user, token }) {
                 }
             });
         }
-    }, [id, user])*/
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user])
 
     // HANDLE CHANGING BUDGET SIZE
     const changeBudgetTotal = async (budgetId, newTotal) => {
-
+        // axios put request
         const res = await api.updateBudget(budgetId, {
             total: newTotal
         }, {
@@ -175,16 +205,19 @@ export default function Tripcard({ user, token }) {
         });
 
         if (res.status === 200) {
+            // set on success
             const budgetRes = await api.getSingleBudget(id, user.id);
             setBudgetData(budgetRes.data[0]);
         } else {
-            alert(`Erro ao conectar servidor...`)
+            alert('Error connecting to server... please try again later.')
         }
     };
 
-    // ----- BUDGET CATEGORIES
+    // ----- BUDGET CATEGORIES -----
 
+    // HANDLE CREATING BUDGET CATEGORY
     const budgetCategoryCreateHandler = async (body) => {
+        // create new category
         const res = await api.createBudgetCategory(body, {
             headers: {
                 authorization: `Viajante ${token}`
@@ -196,11 +229,12 @@ export default function Tripcard({ user, token }) {
             setBudgetData(newBudgetData.data[0]);
             return true
         } else {
-            alert(`Erro ao criar categoria de gastos`);
+            alert('Error creating budget category');
             return false
         }
     };
 
+    // HANDLE EDITING A BUDGET CATEGORY
     const budgetCategoryUpdateHandler = async (categoryId, body) => {
         const res = await api.updateBudgetCategory(categoryId, body, {
             headers: {
@@ -212,10 +246,11 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert(`Erro ao editar categoria de valor...`)
+            alert('Error editing budget category...')
         }
     }
 
+    // HANDLE DELETING A BUDGET CATEGORY
     const budgetCategoryDeleteHandler = async (categoryId) => {
         const res = await api.deleteBudgetCategory(categoryId, {
             headers: {
@@ -227,10 +262,13 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert(`Erro ao deletar categoria de gastos...`)
+            alert('Error deleting budget category...')
         };
     }
 
+    // ----- BUDGET ITEMS -----
+
+    // HANDLE CREATING A BUDGET ITEM
     const budgetItemCreateHandler = async (body) => {
         const res = await api.createBudgetItem(body, {
             headers: {
@@ -242,10 +280,11 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert(`Erro ao criar gasto...`);
+            alert('Error creating budget item...');
         }
     };
 
+    // HANDLE EDITING A BUDGET ITEM
     const budgetItemUpdateHandler = async (itemId, body) => {
         const res = await api.updateBudgetItem(itemId, body, {
             headers: {
@@ -257,10 +296,11 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert(`Erro ao atualizar gasto...`);
+            alert('Error updating budget item...');
         }
     };
 
+    // HANDLE DELETING A BUDGET ITEM
     const budgetItemDeleteHandler = async (itemId) => {
         const res = await api.deleteBudgetItem(itemId, {
             headers: {
@@ -272,21 +312,29 @@ export default function Tripcard({ user, token }) {
             const newBudgetData = await api.getSingleBudget(id, user.id);
             setBudgetData(newBudgetData.data[0]);
         } else {
-            alert(`Erro ao deletar item da categoria...`);
+            alert('Error deleting item from category...');
         };
     };
 
-    // STATES, EFFECTS, METHODS 
+    // ----------------------------------------------------------
 
+
+    
+    
+   
+
+    // STATES, EFFECTS, METHODS FOR TRAVEL LOUNGE TAB
+    // ----------------------------------------------------------
     const [messageData, setMessageData] = useState(null);
     const [travellerData, setTravellerData] = useState(null);
 
-    // useEffect(() => {
-    //     // atualizar plano
-    //     setMessageData(tripData ? tripData.Comments : null);
-    //     setTravellerData(tripData ? tripData.SavedUser : null);
-    // }, [tripData])
+    useEffect(() => {
+        // update plan data on every trip data update
+        setMessageData(tripData ? tripData.Comments : null);
+        setTravellerData(tripData ? tripData.SavedUser : null);
+    }, [tripData])
 
+    // HANDLE ADDING USER TO TRIP
     const userAddHandler = async (tripId, userId) => {
         const res = await api.addUserToTrip({
             TripId: tripId,
@@ -297,6 +345,7 @@ export default function Tripcard({ user, token }) {
             }
         });
 
+        // create unique budget for new travelelr
         const budgetRes = await api.createBudget({
             TripId: tripId,
             UserId: userId
@@ -309,10 +358,11 @@ export default function Tripcard({ user, token }) {
         if (res.status === 200 && budgetRes.status === 200) {
             api.getSingleTrip(id).then(res => {setTripData(res.data)});
         } else {
-            alert(`Erro ao adicionar viajante neste ID...`);
+            alert('Error adding user to trip...');
         };
     };
 
+    // HANDLE CREATING A TRIP COMMENT
     const postCreateHandler = async (body) => {
         const res = await api.createComment(body, {
             headers: {
@@ -324,10 +374,11 @@ export default function Tripcard({ user, token }) {
             const newCommentData = await api.getAllTripComments(id);
             setMessageData(newCommentData.data);
         } else {
-            alert(`Erro ao adicionar comentário...`)
+            alert('Error posting comment...')
         }
     };
 
+    // HANDLE DELETING A TRIP COMMENT
     const postDeleteHandler = async (postId) => {
         const res = await api.deleteComment(postId, {
             headers: {
@@ -340,29 +391,30 @@ export default function Tripcard({ user, token }) {
             setMessageData(newCommentData.data);
             return true
         } else {
-            alert(`Erro ao deletar comentário`);
+            alert('Error deleting comment');
             return false
         };
     };
 
-
+    // ----------------------------------------------------------
 
 
  
     // RENDER APPROPRIATE CONTENT
+    // --------------------------
 
     // HANDLE TAB SWITCHING
     const handleTabSwitch = (e) => {
         e.preventDefault();
         
         // set all classlists to just tab
-        // overviewRef.current.className = "trip-nav-item";
-        // plansRef.current.className = "trip-nav-item";
-        // budgetRef.current.className = "trip-nav-item";
-        // loungeRef.current.className = "trip-nav-item";
+        overviewRef.current.className = "trip-nav-item";
+        plansRef.current.className = "trip-nav-item";
+        budgetRef.current.className = "trip-nav-item";
+        loungeRef.current.className = "trip-nav-item";
 
         // set target to active
-        e.target.classList.add(`trip-nav-active`);
+        e.target.classList.add('trip-nav-active');
         setActiveTab(e.target.id)
     };
 
@@ -373,19 +425,18 @@ export default function Tripcard({ user, token }) {
                         trip={tripData}
                         plans={planData}
                     />
-        } else if (activeTab === `Overview`) {
+        } else if (activeTab === 'Overview') {
             return <Tripoverview
                         trip={tripData}
                         plans={planData}
                     />
-        } else if (activeTab === `Plans`) {
+        } else if (activeTab === 'Plans') {
             return (
                 <div>
                     <h1>Itinerários</h1>
                     <Plantab
                         planData={planData}
                         user={user}
-                        token={token}
                         handlePlanCreate={planAddHandler}
                         handlePlanDelete={planDeleteHandler}
                         handlePlanUpdate={planUpdateHandler}
@@ -396,13 +447,12 @@ export default function Tripcard({ user, token }) {
                     />
                 </div>
             )
-        } else if (activeTab === `Budget`) {
+        } else if (activeTab === 'Budget') {
             return (
                 <div>
                     <h1>Gastos</h1>
                     <Budget
                         user={user}
-                        token={token}
                         budgetData={budgetData}
                         changeTotal={changeBudgetTotal}
                         handleAddBudgetCategory={budgetCategoryCreateHandler}
@@ -415,13 +465,12 @@ export default function Tripcard({ user, token }) {
                     />
                 </div>
             )
-        } else if (activeTab === `Lounge`) {
+        } else if (activeTab === 'Lounge') {
             return (
                 <div>
                     <h1>Chat</h1>
                     <Lounge
                         user={user}
-                        token={token}
 
                         messages={messageData}
                         travellers={travellerData}
@@ -440,10 +489,10 @@ export default function Tripcard({ user, token }) {
         <Container fluid className="trips-main">
             <Container>
                 <div className="trip-nav">
-                    {/* <button className="trip-nav-item trip-nav-active" id="Overview" onClick={handleTabSwitch} ref={overviewRef}>Resumo</button>
+                    <button className="trip-nav-item trip-nav-active" id="Overview" onClick={handleTabSwitch} ref={overviewRef}>Resumo</button>
                     <button className="trip-nav-item" id="Plans" onClick={handleTabSwitch} ref={plansRef}>Itinerários</button>
                     <button className="trip-nav-item" id="Budget" onClick={handleTabSwitch} ref={budgetRef}>Gastos</button>
-                    <button className="trip-nav-item" id="Lounge" onClick={handleTabSwitch} ref={loungeRef}>Chat</button> */}
+                    <button className="trip-nav-item" id="Lounge" onClick={handleTabSwitch} ref={loungeRef}>Chat</button>
                 </div>
                 <div className="trip-content">
                     {renderTab()}

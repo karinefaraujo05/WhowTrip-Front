@@ -37,7 +37,7 @@ export default function CreateTripCard(props) {
         } else {
             setCalendarStack("horizontal");
         }
-    }, []);
+    }, [window.innerWidth]);
 
     const handleDatesChange = ({ startDate, endDate }) => {
         setStartDate(startDate);

@@ -33,13 +33,13 @@ export default function Tripoverview({ trip, plans }) {
                         <h4> Viajantes: </h4>
                         <div className="overview-item trip-owner">
                             <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' />
-                            {trip.User.username}
+                            {trip?.User.username}
                         </div>
-                        {trip.SavedUser.map((traveller, index) => {
+                        {trip?.SavedUser.map((traveller, index) => {
                             return (
                                 <div className="overview-item" key={index}>
                                     <FontAwesomeIcon icon={faUserCircle} size='1x' className="me-2" />
-                                    {traveller.username}
+                                    {traveller?.username}
                                 </div>
                             )
                         })}
