@@ -48,7 +48,7 @@ export default function Plantab(props) {
             budget: 0,
             content: '',
             UserId: props?.user.id,
-            date: moment(newPlanDate._d).format("DD/MM/YYYY"),
+            date: moment(newPlanDate._d).format("MM/DD/YYYY"),
         };
 
         const newPlanId = props.handlePlanCreate(body);

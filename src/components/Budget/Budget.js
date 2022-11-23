@@ -62,7 +62,7 @@ export default function Budget(props) {
         <div style={{display: 'flex', flexDirection: 'column'}}>
             <div className={(findBudgetTotal(props.budgetData)>budgetTotal) ? 'budgetbar-wrapper overbudget' : 'budgetbar-wrapper'}>
                 <div className="budget-overview-wrapper">
-                    <h3 className="budget-overview-text">{props.budgetData ? findBudgetTotal(props.budgetData) : 0}</h3>
+                    <h3 className="budget-overview-text">{props.budgetData ? findBudgetTotal(props.budgetData) : 0 }</h3>
                     <h3 className="budget-overview-divider"> / </h3>
                     {isEditingBudget ? (
                         <form

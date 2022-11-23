@@ -30,7 +30,7 @@ export default function Tripoverview({ trip, plans }) {
             <Row className="summary-wrapper">
                 <Col sm={12} lg={6} className="summary-colum-left">
                     <div className="items-wrapper middle">
-                        <h4> Viajantes: </h4>
+                        <h4>   Viajantes: </h4>
                         <div className="overview-item trip-owner">
                             <FontAwesomeIcon icon={faCrown} size='1x' className='me-2' />
                             {trip?.User.username}

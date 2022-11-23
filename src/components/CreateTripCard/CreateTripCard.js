@@ -37,7 +37,7 @@ export default function CreateTripCard(props) {
         } else {
             setCalendarStack("horizontal");
         }
-    }, [window.innerWidth]);
+    }, []);
 
     const handleDatesChange = ({ startDate, endDate }) => {
         setStartDate(startDate);
@@ -47,8 +47,8 @@ export default function CreateTripCard(props) {
     const handleCreateTripFormSubmit = async (e) => {
         e.preventDefault();
         console.log(startDate);
-        const formattedStartDate = moment.unix(startDate / 1500).format('pt-br');
-        const formattedEndDate = moment.unix(endDate / 1000).format("DD/MM/YYYY");
+        const formattedStartDate = moment.unix(startDate / 1000).format("MM/DD/YYYY");
+        const formattedEndDate = moment.unix(endDate / 1000).format("MM/DD/YYYY");
 
         try {
             const res = await api.createTrip({ 

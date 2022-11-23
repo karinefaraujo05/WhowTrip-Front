@@ -44,12 +44,12 @@ export default function Main(props) {
         e.preventDefault();
         api.login(loginFormState).then(res => {
             console.log(res);
-            localStorage.setItem('userId', res.data.id);
+            localStorage.setItem('userId', res.data.user.id);
             props.setUserState({
                 ...props.userState,
                 user: {
-                    email: res.data.email,
-                    username: res.data.username,
+                    email: res.data.user.email,
+                    username: res.data.user.username,
                 }
             })
         }).catch(err => {
