@@ -1,5 +1,4 @@
 import axios from 'axios';
-// const URL_PREFIX = 'https://whowtrip-back.herokuapp.com/';
 const URL_PREFIX = 'http://localhost:3001';
     
 const api = {
