@@ -45,7 +45,6 @@ function App() {
     localStorage.removeItem('userId');
     window.location = '/';
 };
-console.log(userState.user,'aaaaaaaa');
   return (
     <div style={{ minHeight: '100vh', background: '#b8e1f2', overflowX: 'hidden' }}>
       <Navigation setUserState={setUserState} userState={userState} user={userState.user} handleLogout={handleLogout}/>

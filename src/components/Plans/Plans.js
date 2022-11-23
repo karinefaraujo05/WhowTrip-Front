@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { SingleDatePicker } from 'react-dates';
@@ -48,7 +47,7 @@ export default function Plantab(props) {
             name: newPlanName,
             budget: 0,
             content: '',
-            UserId: props.user.id,
+            UserId: props?.user.id,
             date: moment(newPlanDate._d).format("DD/MM/YYYY"),
         };
 
@@ -72,7 +71,7 @@ export default function Plantab(props) {
     
     const handleCommentOnPlan = async (planId, message) => {
         const body = {
-            UserId: props.user.id,
+            UserId: props?.user.id,
             PlanId: planId,
             content: message
         };
@@ -122,7 +121,7 @@ export default function Plantab(props) {
                                 handleDetailTarget={updatePlanTarget}
                                 handleOptIn={props.handleOptIn}
                                 handleOptOut={props.handleOptOut}
-                                user={props.user}
+                                user={props?.user}
                             />)
                         }
                         </>
@@ -142,7 +141,7 @@ export default function Plantab(props) {
                     </button>
                     <Plandetails
                         planData={props.planData[targetPlanIndex]}
-                        user={props.user}
+                        user={props?.user}
                         planDeleteHandler={handlePlanDelete}
                         planUpdateHandler={handlePlanUpdate}
                         commentHandler={handleCommentOnPlan}

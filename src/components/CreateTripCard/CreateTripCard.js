@@ -46,11 +46,11 @@ export default function CreateTripCard(props) {
 
     const handleCreateTripFormSubmit = async (e) => {
         e.preventDefault();
-        const formattedStartDate = moment.unix(startDate / 1000).format("DD/MM/YYYY");
+        console.log(startDate);
+        const formattedStartDate = moment.unix(startDate / 1500).format('pt-br');
         const formattedEndDate = moment.unix(endDate / 1000).format("DD/MM/YYYY");
 
         try {
-           console.log('brasil');
             const res = await api.createTrip({ 
                 name: tripName,
                 destination: destination,
@@ -92,14 +92,12 @@ export default function CreateTripCard(props) {
         <>
             <div className="createTripBackground">
                 <div className="create-trip-main">
-                    <h1 className="createTripHeader mb-5">
-                        Crie uma viagem!
-                    </h1>
+                    <h1 className="createTripHeader mb-5"> Crie uma viagem! </h1>
 
                     <Form onSubmit={handleCreateTripFormSubmit}>
 
                         <Form.Group className="formGroup mb-5" controlId="tripName">
-                            <Form.Label className="labelName"><h5>Título da sua viagem</h5></Form.Label>
+                            <Form.Label className="labelName"><h5> Título da sua viagem </h5></Form.Label>
                             <InputGroup className="inputStyle">
                                 <InputGroup.Text>
                                     <FontAwesomeIcon icon={faPencilAlt} size='1x' />
@@ -109,7 +107,7 @@ export default function CreateTripCard(props) {
                         </Form.Group>
 
                         <Form.Group className="formGroup mb-5" controlId="destination">
-                            <Form.Label className="labelName"><h5>Destino</h5></Form.Label>
+                            <Form.Label className="labelName"><h5> Destino </h5></Form.Label>
                             <InputGroup className="inputStyle">
                                 <InputGroup.Text>
                                     <FontAwesomeIcon icon={faCity} size='1x' />
@@ -119,7 +117,7 @@ export default function CreateTripCard(props) {
                         </Form.Group>
 
                         <Form.Group className="mb-5" controlId="dates">
-                            <Form.Label className="labelName"><h5>Datas</h5></Form.Label>
+                            <Form.Label className="labelName"><h5> Datas </h5></Form.Label>
                             <InputGroup className="datePicker-mobile">
                                 <DateRangePicker
                                     startDate={startDate} // momentPropTypes.momentObj or null,

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'react-moment';
-import { useParams } from 'react-router-dom';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -123,7 +122,7 @@ export default function Lounge(props) {
                         return (
                             <div className="traveller" key={index}>
                                 <FontAwesomeIcon icon={faUser} size='1x' className="me-2" />
-                                {traveller.username}
+                                {traveller?.username}
                             </div>
                         )
                     })) : (null)}
