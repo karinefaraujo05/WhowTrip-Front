@@ -2,8 +2,6 @@
 
 PROTÓTIPO DE UM WEBSITE PARA O PLANEJAMENTO DE VIAGENS EM GRUPO.
 
-<b> Objetivo: </b>
-
 > Modelar e implementar uma plataforma web capaz de auxiliar na organização de dados e informações geradas durante o planejamento de uma viagem em grupo tendo como tentativa inicial, promover um aumento do controle por meio dos organizadores tendo acesso à roteiros, gastos, comentários e mensagens.
 
 <b> Objetivos Específicos: </b>
@@ -14,15 +12,15 @@ PROTÓTIPO DE UM WEBSITE PARA O PLANEJAMENTO DE VIAGENS EM GRUPO.
 > Implementar a plataforma web, que tenha acesso aos planejamentos de gastos, itinerários, e mensagens (comentários e chat), com o intuito de facilitar o trabalho da organização. 
 
 
-<b> Home da aplicaçao: </b>
+// <b> Home da aplicaçao: </b>
 
-<b> Continuação da aplicaçao: </b>
+// <b> Continuação da aplicaçao: </b>
 
-<b> Continuação da aplicaçao: </b>
+// <b> Continuação da aplicaçao: </b>
 
-<b> Resumo da Viagem: </b>
+// <b> Resumo da Viagem: </b>
 
-<b> Visualização Geral: </b>
+// <b> Visualização Geral: </b>
 
  
 
