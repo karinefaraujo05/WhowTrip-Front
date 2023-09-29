@@ -11,15 +11,20 @@ PROTÓTIPO DE UM WEBSITE PARA O PLANEJAMENTO DE VIAGENS EM GRUPO.
 > Desenvolver funcionalidades que possibilite ao viajante o agendamento e acesso aos dados da sua viagem;
 > Implementar a plataforma web, que tenha acesso aos planejamentos de gastos, itinerários, e mensagens (comentários e chat), com o intuito de facilitar o trabalho da organização. 
 
-
-// <b> Home da aplicaçao: </b>
-<img src="/01.png">
-// <b> Continuação da aplicaçao: </b>
-
-// <b> Continuação da aplicaçao: </b>
-
-// <b> Resumo da Viagem: </b>
-
+<br />
+<b> Home da aplicaçao: </b>
+<img src="/05.png">
+<br />
+<b> Continuação da aplicaçao: </b>
+<img src="/02.png">
+<br />
+<b> Criação da viagem: </b>
+<img src="/03.png">
+<br />
+<b> Resumo da Viagem: </b>
+<br />
+<img src="/04.png">
+<br />
 // <b> Visualização Geral: </b>
 
  
