@@ -13,7 +13,7 @@ PROTÓTIPO DE UM WEBSITE PARA O PLANEJAMENTO DE VIAGENS EM GRUPO.
 
 
 // <b> Home da aplicaçao: </b>
-
+<img src="/01.png">
 // <b> Continuação da aplicaçao: </b>
 
 // <b> Continuação da aplicaçao: </b>
